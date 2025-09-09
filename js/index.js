@@ -352,6 +352,7 @@ const deactivatePreviewToCarousel = (e) => {
       gsap.set(preview, { autoAlpha: 0, pointerEvents: 'none' });
       document.querySelector('main').classList.remove('blurred');
       gsap.set(sceneWrapper, { autoAlpha: 1 });
+      mainNav.classList.remove('hide-nav');
       isAnimating = false;
     });
     return;
@@ -373,6 +374,7 @@ const deactivatePreviewToCarousel = (e) => {
       defaults: { duration: 1.3, ease: 'expo' },
       onComplete: () => {
         smoother.paused(false);
+        mainNav.classList.remove('hide-nav');
         isAnimating = false;
       },
     })

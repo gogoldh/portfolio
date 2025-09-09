@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test</title>
+    <style>
+        body { background: #333; color: white; padding: 20px; }
+        .test-img { width: 200px; height: 150px; object-fit: cover; margin: 10px; border: 2px solid white; }
+        .test-card { 
+            width: 200px; 
+            height: 150px; 
+            background-size: cover; 
+            background-position: center;
+            margin: 10px; 
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <h2>Regular img tags:</h2>
+    <img class="test-img" src="assets/Zuiderbad1.png" alt="Zuiderbad1">
+    <img class="test-img" src="assets/img13.webp" alt="img13">
+    <img class="test-img" src="assets/networkstate_home.jpg" alt="networkstate_home">
+    
+    <h2>Background images (like carousel):</h2>
+    <div class="test-card" style="background-image: url(assets/Zuiderbad1.png)"></div>
+    <div class="test-card" style="background-image: url(assets/img13.webp)"></div>
+    <div class="test-card" style="background-image: url(assets/networkstate_home.jpg)"></div>
+</body>
+</html>
