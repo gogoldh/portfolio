@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Image Carousel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #000;
+      font-family: sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .scene {
+      width: 100vw;
+      height: 100vh;
+      perspective: 1500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .carousel {
+      width: 0;
+      height: 400px;
+      position: absolute;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      transform: rotateY(0deg);
+    }
+    .carousel-item {
+      position: absolute;
+      width: 250px;
+      height: 100%;
+      background: #111;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .title-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: bold;
+      z-index: 2;
+      mix-blend-mode: difference;
+      color: white;
+      pointer-events: none;
+      text-align: center;
+      letter-spacing: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="title-center">AI CAN MAKE A PRETTY PICTURE</div>
+    <div class="carousel" id="carousel">
+    <div class="carousel-item" style="background-image: url('https://unsplash.it/400/600');"></div>
+    <div class="carousel-item" style="background-image: url('https://unsplash.it/400/600');"></div>
+    <div class="carousel-item" style="background-image: url('https://unsplash.it/400/600');"></div>
+    <div class="carousel-item" style="background-image: url('https://unsplash.it/400/600');"></div>
+    <div class="carousel-item" style="background-image: url('https://unsplash.it/400/600');"></div>
+    <div class="carousel-item" style="background-image: url('https://unsplash.it/400/600');"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+  const carousel = document.getElementById("carousel");
+const items = carousel.children;
+const itemCount = items.length;
+const angleStep = 360 / itemCount;
+let rotationY = 0;
+let isDragging = false;
+let startX = 0;
+
+// Position items in 3D circle
+Array.from(items).forEach((item, i) => {
+  const angle = angleStep * i;
+  item.style.transform = `rotateY(${angle}deg) translateZ(600px)`;
+});
+
+const render = () => {
+  gsap.to(carousel, {
+    rotationY,
+    duration: 1.2,
+    ease: "power2.out",
+    overwrite: "auto"
+  });
+};
+
+const onMouseDown = (e) => {
+  isDragging = true;
+  startX = e.clientX;
+};
+
+const onMouseMove = (e) => {
+  if (!isDragging) return;
+  const delta = e.clientX - startX;
+  startX = e.clientX;
+  rotationY += delta * 0.2;
+  render();
+};
+
+const onMouseUp = () => {
+  isDragging = false;
+};
+
+window.addEventListener("mousedown", onMouseDown);
+window.addEventListener("mousemove", onMouseMove);
+window.addEventListener("mouseup", onMouseUp);
+
+// Auto-rotate loop
+function autoRotate() {
+  if (!isDragging) {
+    rotationY += 0.2; // Adjust speed here
+    render();
+  }
+  requestAnimationFrame(autoRotate);
+}
+autoRotate();
+
+  </script>
+</body>
+</html>

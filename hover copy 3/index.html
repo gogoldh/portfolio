@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor"></div>
+  <div class="hero">
+    <canvas class="imgBack" id="c"></canvas>
+    <h1 class="title">Lukas D'Haese</h1>
+     <button id="scroll-down-btn" class="arrow-btn hero-arrow" aria-label="Scroll Down">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+      <path d="M7 10l5 5 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  </div>
+
+    <div class="nav-buttons">
+    <button class="nav-btn">About</button>
+    <button class="nav-btn">Skills</button>
+    <button class="nav-btn">Projects</button>
+    <button class="nav-btn">Contact</button>
+    </div>
+
+  <!-- Content Sections -->
+  <section style="padding: 80px 40px; max-width: 900px; margin: 0 auto; color: white;">
+    <h2>About Me</h2>
+    <p>
+      I'm Lukas D'Haese — a passionate web designer & developer with a sharp eye for aesthetics and a love for clean, functional code.
+      I specialize in creating immersive user experiences that blend creativity with performance.
+    </p>
+    <p>
+      Whether it's building full-stack applications or crafting smooth front-end animations, I bring ideas to life through intuitive design and robust development.
+    </p>
+  </section>
+
+  <section style="padding: 80px 40px; max-width: 900px; margin: 0 auto; color: white;">
+  <h2>Skills</h2>
+  <div class="skills-list">
+    <div class="skill">
+      <span class="skill-name">HTML5</span>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percent="95"></div></div>
+    </div>
+    <div class="skill">
+      <span class="skill-name">CSS3</span>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percent="90"></div></div>
+    </div>
+    <div class="skill">
+      <span class="skill-name">JavaScript</span>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percent="85"></div></div>
+    </div>
+    <div class="skill">
+      <span class="skill-name">React</span>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percent="80"></div></div>
+    </div>
+    <div class="skill">
+      <span class="skill-name">Node.js</span>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percent="75"></div></div>
+    </div>
+    <!-- Add more skills as needed -->
+  </div>
+</section>
+<section id="projects-section" class="scattered-projects-section">
+  <div class="projects-grid-scatter" id="projects-grid-scatter"></div>
+  <div class="projects-big-title">PROJECTS</div>
+</section>
+  </section>
+
+  <section style="padding: 80px 40px; max-width: 900px; margin: 0 auto; color: white;">
+    <h2>Contact</h2>
+    <p>
+      Got a project in mind? Let's build something awesome together.
+    </p>
+    <p>Email: <a href="mailto:lukas@example.com" style="color: #40e0d0;">lukas@example.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="color: #40e0d0;">linkedin.com/in/yourprofile</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 40px; text-align: center; color: #888; font-size: 0.9rem;">
+    <p>&copy; 2025 Lukas D'Haese. All rights reserved.</p>
+    <p>Crafted with passion and JavaScript 🛠️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
