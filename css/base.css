@@ -951,9 +951,6 @@ main.blurred {
   }
 }
 
-/* ...existing code... */
-    text-align: center;
-  }
   
   .scene__title a {
     display: inline-block;
@@ -968,7 +965,6 @@ main.blurred {
   .about-intro {
     flex-direction: column;
   }
-}
 
 /* Extra small mobile devices */
 @media (max-width: 480px) {

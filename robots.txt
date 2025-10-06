@@ -4,7 +4,12 @@ Allow: /
 # Sitemap location
 Sitemap: https://lukasdhaese.be/sitemap.xml
 
-# Disallow admin/development files
-Disallow: /js/
-Disallow: /css/
+# Allow important directories
 Allow: /assets/
+Allow: /css/
+Allow: /js/
+
+# Disallow development/admin files
+Disallow: /test.html
+Disallow: /.htaccess*
+Disallow: /redirect-index.html

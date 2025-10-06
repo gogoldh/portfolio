@@ -78,7 +78,23 @@
     <!-- HOTJAR -->
     <script src="https://t.contentsquare.net/uxa/3599b64d3246a.js"></script>
 
-
+    <!-- Google Analytics with Consent - FIXED: Single implementation -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9FRZRH6HE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Set default consent to denied
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+      
+      gtag('js', new Date());
+      gtag('config', 'G-P9FRZRH6HE', {
+        'anonymize_ip': true
+      });
+    </script>
     
     <!-- Structured Data JSON-LD -->
     <script type="application/ld+json">
@@ -170,24 +186,6 @@
         setTimeout(() => {
           document.body.classList.remove('loading');
         }, 100);
-      });
-    </script>
-    
-    <!-- Google Analytics with Consent - FIXED: Removed duplicate -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9FRZRH6HE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Set default consent
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied'
-      });
-      
-      gtag('js', new Date());
-      gtag('config', 'G-P9FRZRH6HE', {
-        'anonymize_ip': true
       });
     </script>
   </head>
@@ -1024,11 +1022,11 @@
         const rejectBtn = document.getElementById('reject-cookies');
         
         function showBanner() {
-          banner.style.display = 'block';
+          if (banner) banner.style.display = 'block';
         }
         
         function hideBanner() {
-          banner.style.display = 'none';
+          if (banner) banner.style.display = 'none';
         }
         
         function setCookieConsent(value) {
@@ -1038,9 +1036,7 @@
         }
         
         function getCookieConsent() {
-          const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
-          console.log('Getting cookie consent:', consent);
-          return consent;
+          return localStorage.getItem(COOKIE_CONSENT_KEY);
         }
         
         function setAnalyticsConsent(value) {
@@ -1049,9 +1045,7 @@
         }
         
         function getAnalyticsConsent() {
-          const consent = localStorage.getItem(ANALYTICS_CONSENT_KEY) === 'true';
-          console.log('Getting analytics consent:', consent);
-          return consent;
+          return localStorage.getItem(ANALYTICS_CONSENT_KEY) === 'true';
         }
         
         function updateGoogleAnalytics(consent) {
@@ -1061,19 +1055,8 @@
               'ad_storage': 'denied'
             });
             console.log('Google Analytics consent updated:', consent);
-          } else {
-            console.log('Google Analytics not loaded');
           }
         }
-        
-        // Helper function for testing - clear all cookie preferences
-        window.clearCookiePreferences = function() {
-          localStorage.removeItem(COOKIE_CONSENT_KEY);
-          localStorage.removeItem(ANALYTICS_CONSENT_KEY);
-          localStorage.removeItem('cookie-consent-date');
-          console.log('Cookie preferences cleared');
-          location.reload();
-        };
         
         function acceptAll() {
           console.log('Accepting all cookies');
@@ -1094,16 +1077,13 @@
         // Initialize
         function init() {
           const consent = getCookieConsent();
-          console.log('Cookie consent status:', consent);
           
           if (!consent) {
             // Show banner for first-time visitors
-            console.log('No consent found, showing banner');
             setTimeout(showBanner, 1000);
           } else {
             // Apply saved preferences
             const analyticsConsent = getAnalyticsConsent();
-            console.log('Analytics consent:', analyticsConsent);
             updateGoogleAnalytics(analyticsConsent);
           }
           
@@ -1115,8 +1095,17 @@
         }
         
         // Event listeners
-        acceptAllBtn?.addEventListener('click', acceptAll);
-        rejectBtn?.addEventListener('click', rejectAll);
+        if (acceptAllBtn) acceptAllBtn.addEventListener('click', acceptAll);
+        if (rejectBtn) rejectBtn.addEventListener('click', rejectAll);
+        
+        // Helper function for testing
+        window.clearCookiePreferences = function() {
+          localStorage.removeItem(COOKIE_CONSENT_KEY);
+          localStorage.removeItem(ANALYTICS_CONSENT_KEY);
+          localStorage.removeItem('cookie-consent-date');
+          console.log('Cookie preferences cleared');
+          location.reload();
+        };
         
         // Initialize when DOM is loaded
         if (document.readyState === 'loading') {

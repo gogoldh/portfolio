@@ -9,12 +9,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
+  z-index: 99999; /* Increased z-index to ensure it's above everything */
   animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 1rem;
   width: 100vw;
@@ -29,13 +29,10 @@
   max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   text-align: center;
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  z-index: 100000;
 }
 
 .cookie-text h3 {
