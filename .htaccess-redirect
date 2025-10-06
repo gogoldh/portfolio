@@ -1,0 +1,4 @@
+# 301 Redirect from dhaeselukas.be to lukasdhaese.be
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?dhaeselukas\.be$ [NC]
+RewriteRule ^(.*)$ https://lukasdhaese.be/$1 [R=301,L]

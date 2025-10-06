@@ -1,0 +1,16 @@
+{
+  "name": "Lukas D'Haese - Portfolio",
+  "short_name": "Lukas D'Haese",
+  "description": "Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0e0e",
+  "theme_color": "#181818",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

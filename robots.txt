@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lukasdhaese.be/sitemap.xml
+
+# Disallow admin/development files
+Disallow: /js/
+Disallow: /css/
+Allow: /assets/

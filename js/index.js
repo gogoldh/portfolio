@@ -1,18 +1,67 @@
 // Import utility function for preloading images
 import { preloadImages } from './utils.js';
 
-// Register the GSAP plugins
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, SplitText);
-
-// Initialize GSAP's ScrollSmoother for smooth scrolling and scroll-based effects
-const smoother = ScrollSmoother.create({
-  smooth: 1,
-  effects: true,
-  normalizeScroll: true,
+// Wait for GSAP to be loaded, then register plugins
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if GSAP is loaded
+  if (typeof gsap === 'undefined') {
+    console.error('GSAP is not loaded - animations will not work');
+    // Try to continue without GSAP for basic functionality
+    initBasicApp();
+    return;
+  }
+  
+  // Register the GSAP plugins with error checking
+  try {
+    if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+    if (typeof ScrollSmoother !== 'undefined') gsap.registerPlugin(ScrollSmoother);
+    if (typeof ScrollToPlugin !== 'undefined') gsap.registerPlugin(ScrollToPlugin);
+    if (typeof SplitText !== 'undefined') gsap.registerPlugin(SplitText);
+    
+    console.log('GSAP and plugins loaded successfully');
+    // Initialize the application
+    initApp();
+  } catch (error) {
+    console.error('Error registering GSAP plugins:', error);
+    initBasicApp();
+  }
 });
+
+// Basic app initialization without GSAP
+function initBasicApp() {
+  console.log('Running in basic mode without GSAP');
+  // Add basic event listeners that don't require GSAP
+  setupBasicInteractions();
+}
+
+function setupBasicInteractions() {
+  // Basic preview functionality without animations
+  document.querySelectorAll('a[href^="#preview-"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.style.display = 'block';
+        target.style.opacity = '1';
+      }
+    });
+  });
+}
+
+function initApp() {
+
+// TEMPORARILY DISABLE ScrollSmoother to fix scrolling issues
+// Initialize GSAP's ScrollSmoother for smooth scrolling and scroll-based effects
+const smoother = null; // ScrollSmoother.create({
+//   smooth: 1,
+//   effects: true,
+//   normalizeScroll: true,
+// });
 
 // Reference to the container that wraps all the 3D scene elements
 const sceneWrapper = document.querySelector('.scene-wrapper');
+const scrollIndicator = document.querySelector('.scroll-indicator');
 let isAnimating = false;
 const mainNav = document.getElementById('main-nav');
 const splitMap = new Map();
@@ -270,6 +319,8 @@ const animatePreviewTexts = (
 
 const activatePreviewFromCarousel = (e) => {
   mainNav.classList.add('hide-nav');
+  // Hide scroll indicator when opening project
+  if (scrollIndicator) scrollIndicator.classList.add('hidden');
   e.preventDefault();
   if (isAnimating) return;
   isAnimating = true;
@@ -295,12 +346,9 @@ const activatePreviewFromCarousel = (e) => {
       },
     })
     .to(window, {
-      onStart: () => {
-        lockUserScroll();
-      },
       onComplete: () => {
         unlockUserScroll();
-        smoother.paused(true);
+        if (smoother) smoother.paused(true);
       },
       scrollTo: { y: targetY, autoKill: true },
     })
@@ -353,6 +401,25 @@ const deactivatePreviewToCarousel = (e) => {
       document.querySelector('main').classList.remove('blurred');
       gsap.set(sceneWrapper, { autoAlpha: 1 });
       mainNav.classList.remove('hide-nav');
+      // Show scroll indicator when closing preview
+      if (scrollIndicator) scrollIndicator.classList.remove('hidden');
+      // Unlock scrolling when closing about page
+      unlockUserScroll();
+      isAnimating = false;
+    });
+    return;
+  }
+
+  // Special case for Contact modal (no carousel/scene)
+  if (preview.id === 'preview-contact') {
+    gsap.delayedCall(0.3, () => {
+      gsap.set(preview, { autoAlpha: 0, pointerEvents: 'none' });
+      gsap.set(sceneWrapper, { autoAlpha: 1 });
+      mainNav.classList.remove('hide-nav');
+      // Show scroll indicator when closing preview
+      if (scrollIndicator) scrollIndicator.classList.remove('hidden');
+      // Unlock scrolling when closing contact page
+      unlockUserScroll();
       isAnimating = false;
     });
     return;
@@ -373,8 +440,10 @@ const deactivatePreviewToCarousel = (e) => {
       delay: 0.7,
       defaults: { duration: 1.3, ease: 'expo' },
       onComplete: () => {
-        smoother.paused(false);
+        if (smoother) smoother.paused(false);
         mainNav.classList.remove('hide-nav');
+        // Show scroll indicator when closing preview
+        if (scrollIndicator) scrollIndicator.classList.remove('hidden');
         isAnimating = false;
       },
     })
@@ -406,9 +475,32 @@ const deactivatePreviewToCarousel = (e) => {
     .fromTo(cards, { autoAlpha: 0 }, { autoAlpha: 1 }, 0.3);
 };
 
+// Function to handle scroll indicator state based on scroll position
+const handleScrollIndicator = () => {
+  if (!scrollIndicator) return;
+  
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+  const scrollBottom = scrollTop + windowHeight;
+  
+  // Check if we're near the bottom (within 100px)
+  const isAtBottom = scrollBottom >= documentHeight - 100;
+  
+  if (isAtBottom) {
+    scrollIndicator.classList.add('at-bottom');
+    scrollIndicator.querySelector('.scroll-text').textContent = 'Scroll to top';
+  } else {
+    scrollIndicator.classList.remove('at-bottom');
+    scrollIndicator.querySelector('.scroll-text').textContent = 'Scroll to explore';
+  }
+};
+
 const initEventListeners = () => {
   document.querySelectorAll('.scene__title').forEach((title) => {
     title.addEventListener('click', (e) => {
+      // Lock scrolling immediately when a project is clicked
+      lockUserScroll();
       closeAllPreviews();
       activatePreviewFromCarousel(e);
     });
@@ -422,7 +514,11 @@ const initEventListeners = () => {
   if (aboutLink) {
     aboutLink.addEventListener('click', function(e) {
       e.preventDefault();
+      // Lock background scrolling but allow modal scrolling
+      lockUserScroll();
       closeAllPreviews();
+      // Hide scroll indicator when opening about
+      if (scrollIndicator) scrollIndicator.classList.add('hidden');
       gsap.set(sceneWrapper, { autoAlpha: 1 });
       const preview = document.getElementById('preview-about');
       if (preview) {
@@ -433,12 +529,35 @@ const initEventListeners = () => {
       }
     });
   }
+  
+  // Add scroll event listener for scroll indicator
+  window.addEventListener('scroll', handleScrollIndicator);
+  
+  // Add click handler for scroll indicator
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+      if (scrollIndicator.classList.contains('at-bottom')) {
+        // Scroll to top smoothly
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
+  
+  // Initialize scroll indicator state
+  handleScrollIndicator();
 };
 const contactLink = document.querySelector('a[href="#preview-contact"]');
 if (contactLink) {
   contactLink.addEventListener('click', function(e) {
     e.preventDefault();
+    // Lock scrolling immediately when contact page is opened
+    lockUserScroll();
     closeAllPreviews();
+    // Hide scroll indicator when opening contact
+    if (scrollIndicator) scrollIndicator.classList.add('hidden');
     gsap.set(sceneWrapper, { autoAlpha: 1 });
     const preview = document.getElementById('preview-contact');
     if (preview) {
@@ -465,15 +584,21 @@ function preventScroll(e) {
 }
 
 function lockUserScroll() {
-  window.addEventListener('wheel', preventScroll, { passive: false });
-  window.addEventListener('touchmove', preventScroll, { passive: false });
-  window.addEventListener('keydown', preventArrowScroll, false);
+  // Only prevent scrolling on the body/html, not within modals
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+  
+  // Add a class to indicate scroll is locked for styling purposes
+  document.documentElement.classList.add('scroll-locked');
 }
 
 function unlockUserScroll() {
-  window.removeEventListener('wheel', preventScroll);
-  window.removeEventListener('touchmove', preventScroll);
-  window.removeEventListener('keydown', preventArrowScroll);
+  // Restore scrolling
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+  
+  // Remove the scroll locked class
+  document.documentElement.classList.remove('scroll-locked');
 }
 
 function preventArrowScroll(e) {
@@ -489,16 +614,71 @@ function preventArrowScroll(e) {
   if (keys.includes(e.key)) e.preventDefault();
 }
 
+// Function to validate and fix carousel sizes
+const validateCarouselSizes = () => {
+  document.querySelectorAll('.carousel').forEach((carousel) => {
+    const rect = carousel.getBoundingClientRect();
+    const maxWidth = window.innerWidth * 0.8;
+    const maxHeight = window.innerHeight * 0.8;
+    
+    // Reset any inline styles that might cause oversizing
+    if (rect.width > maxWidth || rect.height > maxHeight) {
+      console.log('Resetting oversized carousel');
+      carousel.style.transform = 'translateZ(-550px) rotateY(0deg)';
+      carousel.style.width = '';
+      carousel.style.height = '';
+      
+      // Re-setup the carousel cells
+      setupCarouselCells(carousel);
+    }
+  });
+};
+
+// Debounced resize handler
+let resizeTimeout;
+const handleResize = () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    validateCarouselSizes();
+    ScrollTrigger.refresh();
+  }, 250);
+};
+
 const init = () => {
   initTextsSplit();
   initCarousels();
   initEventListeners();
-  window.addEventListener('resize', ScrollTrigger.refresh);
+  
+  // Hide scrollbar on homepage for cleaner look
+  document.documentElement.classList.add('hide-scrollbar');
+  
+  // Add resize handler with carousel validation
+  window.addEventListener('resize', handleResize);
+  
+  // Validate carousel sizes on initial load
+  setTimeout(validateCarouselSizes, 100);
 };
 
+// Initialize immediately, then enhance when images are loaded
+init();
+
+// Handle page visibility changes (e.g., after refresh, tab switching)
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    setTimeout(validateCarouselSizes, 100);
+  }
+});
+
+// Additional safeguard for page load
+window.addEventListener('load', () => {
+  setTimeout(validateCarouselSizes, 200);
+});
+
 preloadImages('.grid__item-image').then(() => {
-  document.body.classList.remove('loading');
-  init();
+  // Images are loaded, can now trigger any image-dependent animations
+  console.log('All images preloaded');
+  // Add a class to indicate images are ready
+  document.body.classList.add('images-loaded');
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -627,3 +807,5 @@ if (previewContact && businesscard && qr) {
     }
   });
 }
+
+} // End of initApp function
