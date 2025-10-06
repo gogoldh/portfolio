@@ -263,6 +263,19 @@ main {
   }
 }
 
+/* Accessibility improvements */
+.card[aria-label] {
+  /* Ensure interactive cards are keyboard accessible */
+  position: relative;
+  cursor: pointer;
+}
+
+.card[aria-label]:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+  border-radius: var(--border-radius);
+}
+
 /* Skip link for accessibility */
 .skip-link {
   position: absolute;
@@ -278,4 +291,32 @@ main {
 
 .skip-link:focus {
   top: 6px;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus indicators for better accessibility */
+*:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
 }
