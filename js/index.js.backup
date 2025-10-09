@@ -1137,12 +1137,9 @@ if (!projectLightbox) {
   const projectGalleries = {};
   let currentProjectGallery = [];
   let currentProjectIndex = 0;
-  let isProjectLightboxActive = false; // Flag to track if this is a project lightbox session
   
   // Function to show project image in lightbox
   function showProjectImage() {
-    if (!isProjectLightboxActive) return; // Only work if this is a project session
-    
     const imgDiv = currentProjectGallery[currentProjectIndex];
     if (imgDiv) {
       const bgImage = imgDiv.style.backgroundImage;
@@ -1164,27 +1161,23 @@ if (!projectLightbox) {
   function closeProjectLightbox() {
     projectLightbox.style.display = 'none';
     document.body.style.overflow = '';
-    isProjectLightboxActive = false; // Reset the flag
     console.log('🚪 Project lightbox closed');
   }
   
-  // Build project galleries (exclude About images)
+  // Enhanced project gallery images initialization
   document.querySelectorAll('.grid__item-image').forEach(imgDiv => {
     const gallery = imgDiv.dataset.gallery;
-    // Only include images that have a project gallery (not About images)
-    if (gallery && gallery !== 'preview-about') {
+    if (gallery) {
       if (!projectGalleries[gallery]) projectGalleries[gallery] = [];
       projectGalleries[gallery].push(imgDiv);
-      console.log('📁 Added image to project gallery:', gallery, 'Total images:', projectGalleries[gallery].length);
+      console.log('📁 Added image to gallery:', gallery, 'Total images:', projectGalleries[gallery].length);
     }
   });
 
-  // Enhanced project image click handlers (exclude About images)
+  // Enhanced project image click handlers
   document.querySelectorAll('.grid__item-image').forEach(imgDiv => {
-    const gallery = imgDiv.dataset.gallery;
-    
-    // Skip About images and already initialized images
-    if (!gallery || gallery === 'preview-about' || imgDiv.hasAttribute('data-project-lightbox-initialized')) {
+    // Skip if already initialized
+    if (imgDiv.hasAttribute('data-project-lightbox-initialized')) {
       return;
     }
     
@@ -1203,10 +1196,8 @@ if (!projectLightbox) {
       console.log('🖱️ Project image clicked! Gallery:', galleryName, 'Index:', imageIndex);
       
       if (projectGalleries[galleryName]) {
-        // Set up project lightbox session
         currentProjectGallery = projectGalleries[galleryName];
         currentProjectIndex = imageIndex;
-        isProjectLightboxActive = true; // Mark this as a project session
         
         // Show the image
         showProjectImage();
@@ -1216,9 +1207,9 @@ if (!projectLightbox) {
         document.body.style.overflow = 'hidden';
         projectLightbox.focus();
         
-        console.log('🖼️ Opened project lightbox for gallery:', galleryName, 'with', currentProjectGallery.length, 'images');
+        console.log('🖼️ Opened project lightbox for gallery:', galleryName);
       } else {
-        console.log('❌ Project gallery not found:', galleryName);
+        console.log('❌ Gallery not found:', galleryName);
       }
     }
     
@@ -1235,16 +1226,12 @@ if (!projectLightbox) {
   
   // Set up project lightbox event listeners
   if (projectCloseBtn) {
-    projectCloseBtn.addEventListener('click', function() {
-      if (isProjectLightboxActive) {
-        closeProjectLightbox();
-      }
-    });
+    projectCloseBtn.addEventListener('click', closeProjectLightbox);
   }
   
   // Handle keyboard navigation for projects
-  document.addEventListener('keydown', function(e) {
-    if (projectLightbox.style.display === 'flex' && isProjectLightboxActive && currentProjectGallery.length > 0) {
+  const projectKeyHandler = function(e) {
+    if (projectLightbox.style.display === 'flex' && currentProjectGallery.length > 0) {
       if (e.key === 'Escape') {
         closeProjectLightbox();
       } else if (e.key === 'ArrowLeft' && currentProjectGallery.length > 1) {
@@ -1255,21 +1242,22 @@ if (!projectLightbox) {
         showProjectImage();
       }
     }
-  });
+  };
+  
+  // Add project keyboard handler
+  document.addEventListener('keydown', projectKeyHandler);
   
   // Handle navigation button clicks for projects
-  if (projectLeftBtn) {
+  if (projectLeftBtn && projectRightBtn) {
     projectLeftBtn.addEventListener('click', function() {
-      if (projectLightbox.style.display === 'flex' && isProjectLightboxActive && currentProjectGallery.length > 1) {
+      if (projectLightbox.style.display === 'flex' && currentProjectGallery.length > 1) {
         currentProjectIndex = (currentProjectIndex - 1 + currentProjectGallery.length) % currentProjectGallery.length;
         showProjectImage();
       }
     });
-  }
-  
-  if (projectRightBtn) {
+    
     projectRightBtn.addEventListener('click', function() {
-      if (projectLightbox.style.display === 'flex' && isProjectLightboxActive && currentProjectGallery.length > 1) {
+      if (projectLightbox.style.display === 'flex' && currentProjectGallery.length > 1) {
         currentProjectIndex = (currentProjectIndex + 1) % currentProjectGallery.length;
         showProjectImage();
       }
@@ -1278,12 +1266,12 @@ if (!projectLightbox) {
   
   // Handle clicking outside lightbox to close
   projectLightbox.addEventListener('click', function(e) {
-    if (e.target === projectLightbox && isProjectLightboxActive) {
+    if (e.target === projectLightbox) {
       closeProjectLightbox();
     }
   });
   
-  console.log('✅ Project lightbox initialization complete. Project galleries:', Object.keys(projectGalleries));
+  console.log('✅ Project lightbox initialization complete');
 }
 
 // =============================================
@@ -1305,8 +1293,6 @@ function initializeAboutLightbox() {
   const closeBtn = lightbox.querySelector('.lightbox__close');
   const leftBtn = lightbox.querySelector('.lightbox__arrow--left');
   const rightBtn = lightbox.querySelector('.lightbox__arrow--right');
-  
-  // Only get About page images (exclude project images)
   const aboutImages = document.querySelectorAll('.about-image-item');
   
   console.log('📸 Found', aboutImages.length, 'about images');
@@ -1322,15 +1308,12 @@ function initializeAboutLightbox() {
     return;
   }
   
-  // Create gallery array for About images only
+  // Create gallery array for About images
   const aboutGallery = Array.from(aboutImages);
   let currentAboutIndex = 0;
-  let isAboutLightboxActive = false; // Flag to track if this is an About lightbox session
   
   // Function to show About image in lightbox
   function showAboutImage(index) {
-    if (!isAboutLightboxActive) return; // Only work if this is an About session
-    
     const imgDiv = aboutGallery[index];
     const bgImage = imgDiv.style.backgroundImage;
     if (bgImage) {
@@ -1347,42 +1330,39 @@ function initializeAboutLightbox() {
     }
   }
   
-  // Function to close About lightbox
-  function closeAboutLightbox() {
+  // Function to close lightbox
+  function closeLightbox() {
     lightbox.style.display = 'none';
     document.body.style.overflow = '';
-    isAboutLightboxActive = false; // Reset the flag
-    console.log('🚪 About lightbox closed');
+    console.log('🚪 Lightbox closed');
   }
   
   // Function to navigate to previous image
-  function showPreviousAboutImage() {
-    if (!isAboutLightboxActive) return;
+  function showPreviousImage() {
     currentAboutIndex = (currentAboutIndex - 1 + aboutGallery.length) % aboutGallery.length;
     showAboutImage(currentAboutIndex);
   }
   
   // Function to navigate to next image
-  function showNextAboutImage() {
-    if (!isAboutLightboxActive) return;
+  function showNextImage() {
     currentAboutIndex = (currentAboutIndex + 1) % aboutGallery.length;
     showAboutImage(currentAboutIndex);
   }
   
   aboutImages.forEach((imgDiv, index) => {
     // Skip if already initialized
-    if (imgDiv.hasAttribute('data-about-lightbox-initialized')) {
-      console.log('⏭️ About image', index, 'already initialized');
+    if (imgDiv.hasAttribute('data-lightbox-initialized')) {
+      console.log('⏭️ Image', index, 'already initialized');
       return;
     }
     
-    console.log('🔧 Initializing About image', index, imgDiv);
+    console.log('🔧 Initializing image', index, imgDiv);
     
     // Add accessibility attributes
     imgDiv.setAttribute('tabindex', '0');
     imgDiv.setAttribute('role', 'button');
     imgDiv.setAttribute('aria-label', `View About image ${index + 1} in lightbox`);
-    imgDiv.setAttribute('data-about-lightbox-initialized', 'true');
+    imgDiv.setAttribute('data-lightbox-initialized', 'true');
     
     // Add visual indicator that it's clickable
     imgDiv.style.cursor = 'pointer';
@@ -1393,9 +1373,6 @@ function initializeAboutLightbox() {
       e.preventDefault();
       e.stopPropagation();
       
-      // Set up About lightbox session
-      isAboutLightboxActive = true; // Mark this as an About session
-      
       // Show image in lightbox
       showAboutImage(index);
       
@@ -1403,8 +1380,6 @@ function initializeAboutLightbox() {
       lightbox.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       lightbox.focus();
-      
-      console.log('🖼️ Opened About lightbox with', aboutGallery.length, 'images');
     });
     
     // Add keyboard support
@@ -1418,49 +1393,55 @@ function initializeAboutLightbox() {
   
   // Set up lightbox event listeners for About images
   if (closeBtn) {
-    closeBtn.addEventListener('click', function() {
-      if (isAboutLightboxActive) {
-        closeAboutLightbox();
-      }
-    });
+    closeBtn.addEventListener('click', closeLightbox);
   }
   
-  // Handle keyboard navigation for About images
-  document.addEventListener('keydown', function(e) {
-    if (lightbox.style.display === 'flex' && isAboutLightboxActive && aboutGallery.length > 0) {
+  // Handle keyboard navigation
+  const aboutKeyHandler = function(e) {
+    if (lightbox.style.display === 'flex' && aboutGallery.length > 0) {
       if (e.key === 'Escape') {
-        closeAboutLightbox();
+        closeLightbox();
       } else if (e.key === 'ArrowLeft' && aboutGallery.length > 1) {
-        showPreviousAboutImage();
+        showPreviousImage();
       } else if (e.key === 'ArrowRight' && aboutGallery.length > 1) {
-        showNextAboutImage();
+        showNextImage();
       }
     }
-  });
+  };
   
-  // Handle navigation button clicks for About images
-  if (leftBtn) {
-    leftBtn.addEventListener('click', function() {
-      if (lightbox.style.display === 'flex' && isAboutLightboxActive && aboutGallery.length > 1) {
-        showPreviousAboutImage();
+  // Remove any existing About key handler and add new one
+  document.removeEventListener('keydown', aboutKeyHandler);
+  document.addEventListener('keydown', aboutKeyHandler);
+  
+  // Handle navigation button clicks
+  if (leftBtn && aboutGallery.length > 1) {
+    const leftClickHandler = function() {
+      if (lightbox.style.display === 'flex') {
+        showPreviousImage();
       }
-    });
+    };
+    leftBtn.removeEventListener('click', leftClickHandler);
+    leftBtn.addEventListener('click', leftClickHandler);
   }
   
-  if (rightBtn) {
-    rightBtn.addEventListener('click', function() {
-      if (lightbox.style.display === 'flex' && isAboutLightboxActive && aboutGallery.length > 1) {
-        showNextAboutImage();
+  if (rightBtn && aboutGallery.length > 1) {
+    const rightClickHandler = function() {
+      if (lightbox.style.display === 'flex') {
+        showNextImage();
       }
-    });
+    };
+    rightBtn.removeEventListener('click', rightClickHandler);
+    rightBtn.addEventListener('click', rightClickHandler);
   }
   
   // Handle clicking outside lightbox to close
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox && isAboutLightboxActive) {
-      closeAboutLightbox();
+  const outsideClickHandler = function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
     }
-  });
+  };
+  lightbox.removeEventListener('click', outsideClickHandler);
+  lightbox.addEventListener('click', outsideClickHandler);
   
   console.log('=== ABOUT LIGHTBOX INIT COMPLETE ===');
 }
