@@ -1,103 +1,133 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Lukas D'Haese - Web Developer & UX Designer</title>
-    <meta name="description" content="Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding. Portfolio by Lukas D'Haese." />
-    <meta name="keywords" content="Lukas D'Haese, web designer, web developer, UX UI designer, full-stack developer, digital experience design, portfolio, React, Node.js, JavaScript, photography, Belgium" />
-    <meta content="Lukas D'Haese" name="author" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#181818" />
-    <meta name="language" content="English" />
-    <meta name="geo.region" content="BE" />
-    <meta name="geo.placename" content="Belgium" />
-    <meta name="DCTERMS.subject" content="web development, UX design, portfolio" />
-    <meta name="DCTERMS.type" content="Text" />
-    
-    <!-- Canonical URL - Fix for redirect issues -->
-    <link rel="canonical" href="https://lukasdhaese.be/" />
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <link rel="robots" href="/robots.txt" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lukasdhaese.be/" />
-    <meta property="og:title" content="Lukas D'Haese - Web Developer & UX Designer" />
-    <meta property="og:description" content="Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding. Portfolio by Lukas D'Haese." />
-    <meta property="og:image" content="https://lukasdhaese.be/assets/OpenGraph.webp" />
-    <meta property="og:site_name" content="Lukas D'Haese Portfolio" />
-    <meta property="og:locale" content="en_BE" />
-    <meta property="og:image:alt" content="Portrait of Lukas D'Haese" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://lukasdhaese.be/" />
-    <meta property="twitter:title" content="Lukas D'Haese - Web Developer & UX Designer" />
-    <meta property="twitter:description" content="Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding. Portfolio by Lukas D'Haese." />
-    <meta property="twitter:image" content="https://lukasdhaese.be/assets/OpenGraph.webp" />
-    <meta name="twitter:image:alt" content="Portrait of Lukas D'Haese" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <link rel="manifest" href="/manifest.json">
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.typekit.net">
-    
-    <!-- Preload critical fonts with better fallbacks -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,600;1,400&family=League+Gothic&family=Raleway:ital,wght@0,300;0,400;0,600;1,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,600;1,400&family=League+Gothic&family=Raleway:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"></noscript>
-    
-    <!-- Preload critical JavaScript -->
-    <link rel="preload" href="js/gsap.min.js" as="script">
-    <link rel="preload" href="js/index.js" as="script">
-    
-    <!-- Stylesheets -->
-    <!-- Critical CSS - Load immediately to prevent FOUC -->
-    <link href="css/critical.css" rel="stylesheet" type="text/css" />
-    
-    <!-- Non-critical CSS - Load asynchronously for performance -->
-    <link href="https://use.typekit.net/ccs0evy.css" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://use.typekit.net/ccs0evy.css" rel="stylesheet" /></noscript>
-    <link href="css/base.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
-    <noscript><link href="css/base.css" rel="stylesheet" type="text/css" /></noscript>
-    <link href="css/components.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
-    <noscript><link href="css/components.css" rel="stylesheet" type="text/css" /></noscript>
-    <link href="css/layout.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
-    <noscript><link href="css/layout.css" rel="stylesheet" type="text/css" /></noscript>
-    <link href="css/cookies.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
-    <noscript><link href="css/cookies.css" rel="stylesheet" type="text/css" /></noscript>
-    
-    
-    <!-- HOTJAR -->
-    <script src="https://t.contentsquare.net/uxa/3599b64d3246a.js"></script>
 
-    <!-- Google Analytics with Consent - FIXED: Single implementation -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9FRZRH6HE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Set default consent to denied
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied'
-      });
-      
-      gtag('js', new Date());
-      gtag('config', 'G-P9FRZRH6HE', {
-        'anonymize_ip': true
-      });
-    </script>
+<head>
+  <!-- Google Tag Manager with Consent -->
+  <script>
+    // Initialize gtag with consent denied by default
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied'
+    });
     
-    <!-- Structured Data JSON-LD -->
-    <script type="application/ld+json">
+    // Check if user has already given consent
+    const hasAnalyticsConsent = localStorage.getItem('analytics-consent') === 'true';
+    if (hasAnalyticsConsent) {
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+    }
+    
+    // Load GTM
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P3XP6ZRF');
+  </script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Lukas D'Haese - Web Developer & UX Designer</title>
+  <meta name="description"
+    content="Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding. Portfolio by Lukas D'Haese." />
+  <meta name="keywords"
+    content="Lukas D'Haese, web designer, web developer, UX UI designer, full-stack developer, digital experience design, portfolio, React, Node.js, JavaScript, photography, Belgium" />
+  <meta content="Lukas D'Haese" name="author" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#181818" />
+  <meta name="language" content="English" />
+  <meta name="geo.region" content="BE" />
+  <meta name="geo.placename" content="Belgium" />
+  <meta name="DCTERMS.subject" content="web development, UX design, portfolio" />
+  <meta name="DCTERMS.type" content="Text" />
+
+  <!-- Canonical URL - Fix for redirect issues -->
+  <link rel="canonical" href="https://lukasdhaese.be/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="robots" href="/robots.txt" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lukasdhaese.be/" />
+  <meta property="og:title" content="Lukas D'Haese - Web Developer & UX Designer" />
+  <meta property="og:description"
+    content="Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding. Portfolio by Lukas D'Haese." />
+  <meta property="og:image" content="https://lukasdhaese.be/assets/OpenGraph.webp" />
+  <meta property="og:site_name" content="Lukas D'Haese Portfolio" />
+  <meta property="og:locale" content="en_BE" />
+  <meta property="og:image:alt" content="Portrait of Lukas D'Haese" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://lukasdhaese.be/" />
+  <meta property="twitter:title" content="Lukas D'Haese - Web Developer & UX Designer" />
+  <meta property="twitter:description"
+    content="Digital Experience Design student specializing in UX/UI design, full-stack development, and creative coding. Portfolio by Lukas D'Haese." />
+  <meta property="twitter:image" content="https://lukasdhaese.be/assets/OpenGraph.webp" />
+  <meta name="twitter:image:alt" content="Portrait of Lukas D'Haese" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://use.typekit.net">
+
+  <!-- Preload critical fonts with better fallbacks -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,600;1,400&family=League+Gothic&family=Raleway:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,600;1,400&family=League+Gothic&family=Raleway:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+      rel="stylesheet">
+  </noscript>
+
+  <!-- Preload critical JavaScript -->
+  <link rel="preload" href="js/gsap.min.js" as="script">
+  <link rel="preload" href="js/index.js" as="script">
+
+  <!-- Stylesheets -->
+  <!-- Critical CSS - Load immediately to prevent FOUC -->
+  <link href="css/critical.css" rel="stylesheet" type="text/css" />
+
+  <!-- Non-critical CSS - Load asynchronously for performance -->
+  <link href="https://use.typekit.net/ccs0evy.css" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://use.typekit.net/ccs0evy.css" rel="stylesheet" />
+  </noscript>
+  <link href="css/base.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+  </noscript>
+  <link href="css/components.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="css/components.css" rel="stylesheet" type="text/css" />
+  </noscript>
+  <link href="css/layout.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="css/layout.css" rel="stylesheet" type="text/css" />
+  </noscript>
+  <link href="css/cookies.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="css/cookies.css" rel="stylesheet" type="text/css" />
+  </noscript>
+
+
+ 
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -155,8 +185,8 @@
       }
     }
     </script>
-    <!-- Additional Structured Data for WebSite and Site Navigation -->
-    <script type="application/ld+json">
+  <!-- Additional Structured Data for WebSite and Site Navigation -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -164,7 +194,7 @@
       "url": "https://lukasdhaese.be/"
     }
     </script>
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -176,78 +206,89 @@
       ]
     }
     </script>
-    <script>
-      document.documentElement.className = 'js';
-      
-      // Remove loading class immediately to prevent FOUC
-      // This allows basic styles to show while images load
-      document.addEventListener('DOMContentLoaded', function() {
-        // Remove the loading class quickly to show styled content
-        setTimeout(() => {
-          document.body.classList.remove('loading');
-        }, 100);
-      });
-    </script>
-  </head>
-  
-  <body class="loading">
-    
-    <header class="frame">
-      <h1 class="frame__title">
-        Lukas D'Haese <span class="mobile-break"><br></span><span class="desktop-break"><span class="lines">||</span></span> Creative Web Designer & Full-Stack Developer | Belgium
-      </h1>
-      <nav class="frame__links" id="main-nav" aria-label="Primary">
-        <a class="line" href="#preview-about">About</a>
-      </nav>
-        <nav class="frame__tags" aria-label="Social links">
-        <a class="line" href="https://www.instagram.com/lukas_dhaese/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a class="line" href="https://www.linkedin.com/in/lukasdhaese/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="line" href="https://github.com/gogoldh" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
-    </header>
-    
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator" id="scroll-indicator">
-      <span class="scroll-text">Scroll to explore</span>
-      <div class="scroll-arrow">↓</div>
-    </div>
-    
-    <main id="smooth-content">
-      <div class="scene-wrapper">
-        <!-- Carousel 1 -->
-        <section class="scene" aria-labelledby="scene1-title">
-          <h2 class="scene__title" id="scene1-title" data-speed="0.7">
-            <a href="#preview-1"><span>Zuiderbad - Interactive Web Map Development</span></a>
-          </h2>
-          <div class="carousel">
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/Zuiderbad1.webp)" aria-label="Zuiderbad interactive map project - client meeting and project planning">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
-            </div>
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/zuiderbadmap.webp)" aria-label="Interactive map interface design for Zuiderbad recreational facility">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
-            </div>
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/zuiderbad2.webp)" aria-label="Web development work in progress - Zuiderbad mapping project">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
-            </div>
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/zuiderbad3.webp)" aria-label="QR code implementation for interactive route setting system">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
+  <script>
+    document.documentElement.className = 'js';
+
+    // Remove loading class immediately to prevent FOUC
+    // This allows basic styles to show while images load
+    document.addEventListener('DOMContentLoaded', function () {
+      // Remove the loading class quickly to show styled content
+      setTimeout(() => {
+        document.body.classList.remove('loading');
+      }, 100);
+    });
+  </script>
+</head>
+
+<body class="loading">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3XP6ZRF" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header class="frame">
+    <h1 class="frame__title">
+      Lukas D'Haese <span class="mobile-break"></span><span class="desktop-break"><span
+          class="lines">||</span></span> Creative Web Designer & Full-Stack Developer | Belgium
+    </h1>
+    <nav class="frame__links" id="main-nav" aria-label="Primary">
+      <a class="line" href="#preview-about">About</a>
+    </nav>
+    <nav class="frame__tags" aria-label="Social links">
+      <a class="line" href="https://www.instagram.com/lukas_dhaese/" target="_blank"
+        rel="noopener noreferrer">Instagram</a>
+      <a class="line" href="https://www.linkedin.com/in/lukasdhaese/" target="_blank"
+        rel="noopener noreferrer">LinkedIn</a>
+      <a class="line" href="https://github.com/gogoldh" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </header>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" id="scroll-indicator">
+    <span class="scroll-text"></span>
+    <div class="scroll-arrow">↓</div>
+  </div>
+
+  <main id="smooth-content">
+    <div class="scene-wrapper">
+      <!-- Carousel 1 -->
+      <section class="scene" aria-labelledby="scene1-title">
+        <h2 class="scene__title" id="scene1-title" data-speed="0.7">
+          <a href="#preview-1"><span>Zuiderbad - Interactive Web Map Development</span></a>
+        </h2>
+        <div class="carousel">
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/Zuiderbad1.webp)"
+              aria-label="Zuiderbad interactive map project - client meeting and project planning">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
             </div>
           </div>
-        </section>
-        <!-- Carousel 2 -->
-        <!-- <div class="scene">
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/zuiderbadmap.webp)"
+              aria-label="Interactive map interface design for Zuiderbad recreational facility">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
+            </div>
+          </div>
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/zuiderbad2.webp)"
+              aria-label="Web development work in progress - Zuiderbad mapping project">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
+            </div>
+          </div>
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/zuiderbad3.webp)"
+              aria-label="QR code implementation for interactive route setting system">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Carousel 2 -->
+      <!-- <div class="scene">
           <h2 class="scene__title" data-speed="0.7">
             <a href="#preview-2"><span>Webshop back-end development</span></a>
           </h2>
@@ -278,40 +319,44 @@
             </div>
           </div>
         </div> -->
-        <!-- Carousel 3 -->
-        <section class="scene" aria-labelledby="scene3-title">
-          <h2 class="scene__title" id="scene3-title" data-speed="0.7">
-            <a href="#preview-3"><span>Networkstate Hackathon - UX/UI Design Project</span></a>
-          </h2>
-          <div class="carousel">
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/networkstate_home.webp)" aria-label="Networkstate application home screen design - blockchain-based governance interface">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
-            </div>
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/networkstate_zuzalu.webp)" aria-label="Zuzalu concept example - digital governance community interface design">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
-            </div>
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/networkstate.webp)" aria-label="Networkstate project overview - hackathon UX design solution">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
-            </div>
-            <div class="carousel__cell">
-              <div class="card" style="--img: url(/assets/networkstate_community.webp)" aria-label="Community engagement screen design - democratic participation interface">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
-              </div>
+      <!-- Carousel 3 -->
+      <section class="scene" aria-labelledby="scene3-title">
+        <h2 class="scene__title" id="scene3-title" data-speed="0.7">
+          <a href="#preview-3"><span>Networkstate Hackathon - UX/UI Design Project</span></a>
+        </h2>
+        <div class="carousel">
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/networkstate_home.webp)"
+              aria-label="Networkstate application home screen design - blockchain-based governance interface">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
             </div>
           </div>
-        </section>
-        <!-- Carousel 4 -->
-        <!-- <div class="scene">
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/networkstate_zuzalu.webp)"
+              aria-label="Zuzalu concept example - digital governance community interface design">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
+            </div>
+          </div>
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/networkstate.webp)"
+              aria-label="Networkstate project overview - hackathon UX design solution">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
+            </div>
+          </div>
+          <div class="carousel__cell">
+            <div class="card" style="--img: url(/assets/networkstate_community.webp)"
+              aria-label="Community engagement screen design - democratic participation interface">
+              <div class="card__face card__face--front"></div>
+              <div class="card__face card__face--back"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Carousel 4 -->
+      <!-- <div class="scene">
           <h2 class="scene__title" data-speed="0.7">
             <a href="#preview-4"><span>Chic Couture Runway — Milan</span></a>
           </h2>
@@ -420,44 +465,64 @@
         </div> -->
       <!-- </div> -->
       <!-- / scenes-wrapper -->
-    </main>
-    <div class="modal-overlay" id="modal-overlay" aria-hidden="true" role="presentation"></div>
-    <div class="preview-wrapper">
-      <section class="preview" id="preview-about" role="dialog" aria-modal="true" aria-labelledby="preview-about-title" tabindex="-1">
-        <header class="preview__header">
-          <h2 class="preview__title" id="preview-about-title"><span>About Lukas D'Haese</span></h2>
-          <button type="button" class="preview__close" aria-label="Close dialog">Close ×</button>
-        </header>
-        <div class="preview__content">
+  </main>
+  <div class="modal-overlay" id="modal-overlay" aria-hidden="true" role="presentation"></div>
+  <div class="preview-wrapper">
+    <section class="preview" id="preview-about" role="dialog" aria-modal="true" aria-labelledby="preview-about-title"
+      tabindex="-1">
+      <header class="preview__header">
+        <h2 class="preview__title" id="preview-about-title"><span>About Lukas D'Haese</span></h2>
+        <button type="button" class="preview__close" aria-label="Close dialog">Close</button>
+      </header>
+      <div class="preview__content">
         <div class="project-details">
           <p class="project-description">
-            I'm Lukas D'Haese — a passionate Digital Experience Design student from Belgium, specializing in creating seamless digital experiences that merge technical excellence with thoughtful design. My journey spans <strong>full-stack development</strong>, <strong>UI/UX design</strong>, and <strong>creative problem-solving</strong>, always driven by the belief that great design should be both beautiful and functional.
+            I'm Lukas D'Haese — a passionate Digital Experience Design student from Belgium, specializing in creating
+            seamless digital experiences that merge technical excellence with thoughtful design. My journey spans
+            <strong>full-stack development</strong>, <strong>UI/UX design</strong>, and <strong>creative
+              problem-solving</strong>, always driven by the belief that great design should be both beautiful and
+            functional.
           </p>
           <p class="project-description">
-            I also have a deep passion for <strong>photography</strong> and post-processing in tools like <strong>Lightroom</strong> and <strong>Photoshop</strong>. Capturing and shaping visuals helps me stay creative and sharp-eyed in my design work.
+            I also have a deep passion for <strong>photography</strong> and post-processing in tools like
+            <strong>Lightroom</strong> and <strong>Photoshop</strong>. Capturing and shaping visuals helps me stay
+            creative and sharp-eyed in my design work.
           </p>
           <p class="project-description">
-            Beyond web design and development, I'm deeply passionate about <strong>visual storytelling through photography</strong>, advanced post-processing in <strong>Adobe Lightroom</strong> and <strong>Photoshop</strong>. This visual expertise significantly enhances my web design work, allowing me to create more compelling and aesthetically refined digital experiences.
+            Beyond web design and development, I'm deeply passionate about <strong>visual storytelling through
+              photography</strong>, advanced post-processing in <strong>Adobe Lightroom</strong> and
+            <strong>Photoshop</strong>. This visual expertise significantly enhances my web design work, allowing me to
+            create more compelling and aesthetically refined digital experiences.
           </p>
           <p class="project-description">
-            When I'm not designing innovative web experiences or coding dynamic applications, you'll find me at Circolito training in <strong>acrobatics (Acro Porte)</strong>, where creativity, trust, and precise timing converge in fluid motion, or performing with the Gen C compagnie.
+            When I'm not designing innovative web experiences or coding dynamic applications, you'll find me at
+            Circolito training in <strong>acrobatics (Acro Porte)</strong>, where creativity, trust, and precise timing
+            converge in fluid motion, or performing with the Gen C compagnie.
           </p>
           <ul class="project-meta">
             <li><strong>Location:</strong> Belgium (Available for creative web design projects globally)</li>
             <li><strong>Education:</strong> Digital Experience Design, Thomas More University of Applied Sciences</li>
-            <li><strong>Core Expertise:</strong> Creative Web Design, UI/UX Design, Full-Stack Development, Interactive Design, Creative Coding, Visual Design</li>
-            <li><strong>Technical Skills:</strong> React, Vue.js, Node.js, JavaScript ES6+, GSAP, Three.js, Adobe Creative Suite, Figma</li>
+            <li><strong>Core Expertise:</strong> Creative Web Design, UI/UX Design, Full-Stack Development, Interactive
+              Design, Creative Coding, Visual Design</li>
+            <li><strong>Technical Skills:</strong> React, Vue.js, Node.js, JavaScript ES6+, GSAP, Three.js, Adobe
+              Creative Suite, Figma</li>
             <li><strong>Languages:</strong> Dutch (Native), English (Fluent), French (Conversational)</li>
-            <li><strong>Email:</strong> <a href="mailto:lukas.dhaese@gmail.com" target="_blank" rel="noopener noreferrer">lukas.dhaese@gmail.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lukas-dhaese" target="_blank" rel="noopener noreferrer">Connect for creative collaboration</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/gogoldh" target="_blank" rel="noopener noreferrer">Explore my creative code projects</a></li>
-            <li><strong>Download CV:</strong> <a href="/assets/LukasDHaese_2025.pdf" target="_blank" rel="noopener noreferrer">View my complete CV (PDF)</a></li>
+            <li><strong>Email:</strong> <a href="mailto:lukas.dhaese@gmail.com" target="_blank"
+                rel="noopener noreferrer">lukas.dhaese@gmail.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lukas-dhaese" target="_blank"
+                rel="noopener noreferrer">Connect for creative collaboration</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/gogoldh" target="_blank"
+                rel="noopener noreferrer">Explore my creative code projects</a></li>
+            <li><strong>Download CV:</strong> <a href="/assets/LukasDHaese_2025.pdf" target="_blank"
+                rel="noopener noreferrer">View my complete CV (PDF)</a></li>
           </ul>
         </div>
 
         <div class="project-highlight">
           <h3>My Creative Design Philosophy</h3>
-          <p>"Exceptional web design emerges when creative vision meets technical mastery. Every pixel, every interaction, and every line of code should serve a greater purpose — to create digital experiences that inspire, engage, and transform how people connect with brands and ideas online."</p>
+          <p>"Exceptional web design emerges when creative vision meets technical mastery. Every pixel, every
+            interaction, and every line of code should serve a greater purpose — to create digital experiences that
+            inspire, engage, and transform how people connect with brands and ideas online."</p>
         </div>
 
         <div class="project-stats">
@@ -485,31 +550,44 @@
             <div class="project-process">
               <div class="process-step">
                 <h4>Digital Experience Design</h4>
-                <p>Currently pursuing my degree in Digital Experience Design at Thomas More University of Applied Sciences, focusing on the intersection of technology, design, and human psychology.</p>
+                <p>Currently pursuing my degree in Digital Experience Design at Thomas More University of Applied
+                  Sciences, focusing on the intersection of technology, design, and human psychology.</p>
               </div>
               <div class="process-step">
                 <h4>Full-Stack Creative Development</h4>
-                <p>Expert in translating creative concepts into functional, high-performance web applications. Proficient in React, Vue.js, Node.js, and modern JavaScript frameworks, with a focus on creating scalable, maintainable code architectures.</p>
+                <p>Expert in translating creative concepts into functional, high-performance web applications.
+                  Proficient in React, Vue.js, Node.js, and modern JavaScript frameworks, with a focus on creating
+                  scalable, maintainable code architectures.</p>
               </div>
             </div>
             <p class="project-description">
-              My academic foundation in <strong>Digital Experience Design</strong> at Thomas More University is complemented by real-world creative projects, design hackathons, and client collaborations. I continuously explore emerging web technologies and design trends to push the boundaries of what's possible in digital design.
+              My academic foundation in <strong>Digital Experience Design</strong> at Thomas More University is
+              complemented by real-world creative projects, design hackathons, and client collaborations. I continuously
+              explore emerging web technologies and design trends to push the boundaries of what's possible in digital
+              design.
             </p>
           </div>
 
           <div class="project-section">
             <h3>Visual Arts & Creative Inspiration</h3>
             <p class="project-description">
-              My creative web design work is deeply influenced by my passion for <strong>photography and visual arts</strong>. I specialize in event and performance photography, with advanced skills in post-processing using Adobe Lightroom and Photoshop. This visual background provides invaluable insight into composition, color theory, and visual hierarchy that directly enhances my web design projects.
+              My creative web design work is deeply influenced by my passion for <strong>photography and visual
+                arts</strong>. I specialize in event and performance photography, with advanced skills in
+              post-processing using Adobe Lightroom and Photoshop. This visual background provides invaluable insight
+              into composition, color theory, and visual hierarchy that directly enhances my web design projects.
             </p>
             <div class="project-process">
               <div class="process-step">
                 <h4>Performance Arts & Movement</h4>
-                <p>Training in Acro Porte at Circolito and performing with Gen C has taught me about creative collaboration, timing, and expressing complex ideas through movement — skills that translate beautifully into designing intuitive user interactions and smooth web animations.</p>
+                <p>Training in Acro Porte at Circolito and performing with Gen C has taught me about creative
+                  collaboration, timing, and expressing complex ideas through movement — skills that translate
+                  beautifully into designing intuitive user interactions and smooth web animations.</p>
               </div>
               <div class="process-step">
                 <h4>Visual Storytelling</h4>
-                <p>My photography work focuses on capturing authentic moments and dynamic movement, developing my eye for composition and timing that directly informs my approach to visual hierarchy and user flow in web design projects.</p>
+                <p>My photography work focuses on capturing authentic moments and dynamic movement, developing my eye
+                  for composition and timing that directly informs my approach to visual hierarchy and user flow in web
+                  design projects.</p>
               </div>
             </div>
           </div>
@@ -551,13 +629,16 @@
         <div class="project-section">
           <h3>Work Approach & Values</h3>
           <p class="project-description">
-            I believe great projects are born from collaboration, empathy, and attention to detail. Whether leading a team as a project manager or diving deep into code as a developer, I prioritize clear communication, user-centered thinking, and sustainable, maintainable solutions.
+            I believe great projects are born from collaboration, empathy, and attention to detail. Whether leading a
+            team as a project manager or diving deep into code as a developer, I prioritize clear communication,
+            user-centered thinking, and sustainable, maintainable solutions.
           </p>
           <div class="project-highlight">
             <h4>Core Values:</h4>
             <ul>
               <li><strong>User-Centered Design:</strong> Every decision should ultimately benefit the end user</li>
-              <li><strong>Collaborative Excellence:</strong> The best solutions emerge from diverse perspectives working together</li>
+              <li><strong>Collaborative Excellence:</strong> The best solutions emerge from diverse perspectives working
+                together</li>
               <li><strong>Continuous Learning:</strong> Technology evolves rapidly; staying curious is essential</li>
               <li><strong>Attention to Detail:</strong> Small refinements often make the biggest difference</li>
               <li><strong>Accessibility First:</strong> Great design should be inclusive and accessible to everyone</li>
@@ -569,58 +650,73 @@
           <div class="project-section">
             <h3>Current Goals & Aspirations</h3>
             <p class="project-description">
-              I'm actively seeking opportunities to work on innovative web design projects that challenge conventional digital experiences and explore the intersection of art, technology, and human psychology. My current focus includes advanced web animations, immersive interactive experiences, and exploring AI-enhanced creative design workflows.
+              I'm actively seeking opportunities to work on innovative web design projects that challenge conventional
+              digital experiences and explore the intersection of art, technology, and human psychology. My current
+              focus includes advanced web animations, immersive interactive experiences, and exploring AI-enhanced
+              creative design workflows.
             </p>
             <div class="project-process">
               <div class="process-step">
                 <h4>Near-term Creative Goals</h4>
-                <p>Complete my Digital Experience Design degree with distinction, contribute to open-source creative coding projects, and gain experience in large-scale creative campaigns and brand identity projects.</p>
+                <p>Complete my Digital Experience Design degree with distinction, contribute to open-source creative
+                  coding projects, and gain experience in large-scale creative campaigns and brand identity projects.
+                </p>
               </div>
               <div class="process-step">
                 <h4>Long-term Vision</h4>
-                <p>Establish myself as a creative technologist who bridges design and development, potentially founding a studio focused on innovative digital experiences for meaningful brands and causes.</p>
+                <p>Establish myself as a creative technologist who bridges design and development, potentially founding
+                  a studio focused on innovative digital experiences for meaningful brands and causes.</p>
               </div>
             </div>
           </div>
 
           <div class="project-highlight">
             <h3>Let's Connect</h3>
-            <p>I'm always interested in discussing new projects, creative collaborations, or simply connecting with fellow designers and developers. Whether you're looking for technical expertise, creative problem-solving, or someone who brings both analytical thinking and artistic sensibility to the table, I'd love to hear from you.</p>
+            <p>I'm always interested in discussing new projects, creative collaborations, or simply connecting with
+              fellow designers and developers. Whether you're looking for technical expertise, creative problem-solving,
+              or someone who brings both analytical thinking and artistic sensibility to the table, I'd love to hear
+              from you.</p>
           </div>
         </div>
 
         <div class="about-image-gallery">
-          <div class="about-image-item" style="background-image: url(assets/AnaisLauwers_Circolitoonweekend_Cis83.webp)" data-gallery="preview-about" data-index="0">
+          <div class="about-image-item" style="background-image: url(assets/AnaisLauwers_Circolitoonweekend_Cis83.webp)"
+            data-gallery="preview-about" data-index="0">
             <div class="about-image-caption">
               <h4>Performance Photography</h4>
               <p>Capturing dynamic acrobatic performances</p>
             </div>
           </div>
-          <div class="about-image-item" style="background-image: url(assets/AnaisLauwers_Circolitoonweekend_Cis89.webp)" data-gallery="preview-about" data-index="1">
+          <div class="about-image-item" style="background-image: url(assets/AnaisLauwers_Circolitoonweekend_Cis89.webp)"
+            data-gallery="preview-about" data-index="1">
             <div class="about-image-caption">
               <h4>Creative Movement</h4>
               <p>Acro Porte training and performance</p>
             </div>
           </div>
-          <div class="about-image-item" style="background-image: url(assets/networkstate_community.webp)" data-gallery="preview-about" data-index="2">
+          <div class="about-image-item" style="background-image: url(assets/networkstate_community.webp)"
+            data-gallery="preview-about" data-index="2">
             <div class="about-image-caption">
               <h4>Digital Projects</h4>
               <p>Web development and design work</p>
             </div>
           </div>
-          <div class="about-image-item" style="background-image: url(assets/zuiderbad2.webp)" data-gallery="preview-about" data-index="3">
+          <div class="about-image-item" style="background-image: url(assets/zuiderbad2.webp)"
+            data-gallery="preview-about" data-index="3">
             <div class="about-image-caption">
               <h4>UI/UX Design</h4>
               <p>User interface and experience design</p>
             </div>
           </div>
-          <div class="about-image-item" style="background-image: url(assets/frame.webp)" data-gallery="preview-about" data-index="4">
+          <div class="about-image-item" style="background-image: url(assets/frame.webp)" data-gallery="preview-about"
+            data-index="4">
             <div class="about-image-caption">
               <h4>Creative Coding</h4>
               <p>Interactive web experiences</p>
             </div>
           </div>
-          <div class="about-image-item" style="background-image: url(assets/zuiderbadmockup.webp)" data-gallery="preview-about" data-index="5">
+          <div class="about-image-item" style="background-image: url(assets/zuiderbadmockup.webp)"
+            data-gallery="preview-about" data-index="5">
             <div class="about-image-caption">
               <h4>Project Mockups</h4>
               <p>Design prototypes and concepts</p>
@@ -631,32 +727,44 @@
         <ul class="project-meta">
           <li><strong>Location:</strong> Belgium (Available for creative web design projects globally)</li>
           <li><strong>Education:</strong> Digital Experience Design, Thomas More University of Applied Sciences</li>
-          <li><strong>Core Expertise:</strong> Creative Web Design, Interactive UI/UX Design, Full-Stack Development, Creative Coding, Visual Design, Photography</li>
+          <li><strong>Core Expertise:</strong> Creative Web Design, Interactive UI/UX Design, Full-Stack Development,
+            Creative Coding, Visual Design, Photography</li>
           <li><strong>Languages:</strong> Dutch (Native), English (Fluent), French (Conversational)</li>
-          <li><strong>Email:</strong> <a href="mailto:lukas.dhaese@gmail.com" target="_blank" rel="noopener noreferrer">lukas.dhaese@gmail.com</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lukas-dhaese" target="_blank" rel="noopener noreferrer">Connect for collaboration</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/gogoldh" target="_blank" rel="noopener noreferrer">Explore my development projects</a></li>
-          <li><strong>Download CV:</strong> <a href="/assets/Lukas_DHaese_CV.pdf" target="_blank" rel="noopener noreferrer">View my complete CV (PDF)</a></li>
+          <li><strong>Email:</strong> <a href="mailto:lukas.dhaese@gmail.com" target="_blank"
+              rel="noopener noreferrer">lukas.dhaese@gmail.com</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lukas-dhaese" target="_blank"
+              rel="noopener noreferrer">Connect for collaboration</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/gogoldh" target="_blank"
+              rel="noopener noreferrer">Explore my development projects</a></li>
+          <li><strong>Download CV:</strong> <a href="/assets/Lukas_DHaese_CV.pdf" target="_blank"
+              rel="noopener noreferrer">View my complete CV (PDF)</a></li>
         </ul>
-        </div>
-      </section>
-    
+      </div>
+    </section>
+
     <!-- Preview 1 -->
-    <section class="preview" id="preview-1" role="dialog" aria-modal="true" aria-labelledby="preview-1-title" tabindex="-1">
+    <section class="preview" id="preview-1" role="dialog" aria-modal="true" aria-labelledby="preview-1-title"
+      tabindex="-1">
       <header class="preview__header">
         <h2 class="preview__title" id="preview-1-title"><span>Interactive Map - Zuiderbad</span></h2>
-        <button type="button" class="preview__close" aria-label="Close dialog">Close ×</button>
+        <button type="button" class="preview__close" aria-label="Close dialog">Close</button>
       </header>
       <div class="preview__content">
         <div class="project-details">
           <p class="project-description">
-            Zuiderbad, a premier recreational facility at the historic Hofstade domain in Ghent, needed a digital solution to help visitors navigate their extensive 15-hectare grounds and discover all available facilities. As project manager leading a three-person team, we developed an innovative interactive web map that fundamentally transformed how visitors explore and engage with the space.
+            Zuiderbad, a premier recreational facility at the historic Hofstade domain in Ghent, needed a digital
+            solution to help visitors navigate their extensive 15-hectare grounds and discover all available facilities.
+            As project manager leading a three-person team, we developed an innovative interactive web map that
+            fundamentally transformed how visitors explore and engage with the space.
           </p>
         </div>
 
         <div class="project-highlight">
           <h3>The Challenge</h3>
-          <p>Through extensive client meetings and on-site observations, we identified critical pain points: visitors felt overwhelmed by the large area, missed activities they weren't aware of, and struggled with wayfinding. This led to reduced engagement and visitor frustration, with particular accessibility challenges for users with diverse needs.</p>
+          <p>Through extensive client meetings and on-site observations, we identified critical pain points: visitors
+            felt overwhelmed by the large area, missed activities they weren't aware of, and struggled with wayfinding.
+            This led to reduced engagement and visitor frustration, with particular accessibility challenges for users
+            with diverse needs.</p>
         </div>
 
         <div class="project-stats">
@@ -683,22 +791,29 @@
           <div class="project-process">
             <div class="process-step">
               <h4>User Research</h4>
-              <p>Conducted 15+ interviews with visitors and staff, analyzed traffic flow patterns, and identified key user journeys to understand navigation challenges and preferences.</p>
+              <p>Conducted 15+ interviews with visitors and staff, analyzed traffic flow patterns, and identified key
+                user journeys to understand navigation challenges and preferences.</p>
             </div>
             <div class="process-step">
               <h4>Technical Analysis</h4>
-              <p>Evaluated mapping solutions, tested Leaflet.js capabilities, and planned QR code integration strategy for seamless mobile access across the facility.</p>
+              <p>Evaluated mapping solutions, tested Leaflet.js capabilities, and planned QR code integration strategy
+                for seamless mobile access across the facility.</p>
             </div>
           </div>
           <p class="project-description">
-            Our research revealed that 78% of first-time visitors missed at least one major facility, and 45% felt the space was "too large to explore fully." This data drove our decision to create a digital wayfinding solution that would be both comprehensive and intuitive.
+            Our research revealed that 78% of first-time visitors missed at least one major facility, and 45% felt the
+            space was "too large to explore fully." This data drove our decision to create a digital wayfinding solution
+            that would be both comprehensive and intuitive.
           </p>
         </div>
 
         <div class="project-section">
           <h3>Technical Implementation</h3>
           <p class="project-description">
-            We built a responsive web application using Leaflet.js for interactive mapping, implementing custom facility markers, comprehensive search functionality, and strategically placed QR codes throughout the facility for instant mobile access. The solution includes WCAG-compliant accessibility features with keyboard navigation and screen reader support.
+            We built a responsive web application using Leaflet.js for interactive mapping, implementing custom facility
+            markers, comprehensive search functionality, and strategically placed QR codes throughout the facility for
+            instant mobile access. The solution includes WCAG-compliant accessibility features with keyboard navigation
+            and screen reader support.
           </p>
           <div class="project-highlight">
             <h4>Key Features Delivered:</h4>
@@ -716,16 +831,21 @@
         <div class="project-section">
           <h3>Creative Project Leadership & Team Management</h3>
           <p class="project-description">
-            As project manager and frontend developer, I coordinated our multidisciplinary team using Agile methodologies, managed weekly client communications, and ensured deliverables met strict deadlines. I implemented a comprehensive project timeline with clear milestones, managed resource allocation, and facilitated effective collaboration between design and development phases.
+            As project manager and frontend developer, I coordinated our multidisciplinary team using Agile
+            methodologies, managed weekly client communications, and ensured deliverables met strict deadlines. I
+            implemented a comprehensive project timeline with clear milestones, managed resource allocation, and
+            facilitated effective collaboration between design and development phases.
           </p>
           <div class="project-process">
             <div class="process-step">
               <h4>Leadership Approach</h4>
-              <p>Established clear communication channels, organized weekly scrums, and maintained project documentation to ensure team alignment and client satisfaction.</p>
+              <p>Established clear communication channels, organized weekly scrums, and maintained project documentation
+                to ensure team alignment and client satisfaction.</p>
             </div>
             <div class="process-step">
               <h4>Technical Execution</h4>
-              <p>Led frontend development, implemented responsive design patterns, and ensured cross-browser compatibility and optimal performance across all devices.</p>
+              <p>Led frontend development, implemented responsive design patterns, and ensured cross-browser
+                compatibility and optimal performance across all devices.</p>
             </div>
           </div>
         </div>
@@ -733,54 +853,72 @@
         <div class="project-section">
           <h3>Results & Impact</h3>
           <p class="project-description">
-            The interactive map significantly improved visitor navigation and facility engagement at Zuiderbad. Post-launch metrics showed a 65% increase in facility discovery rates and overwhelmingly positive user feedback. The project successfully demonstrated the power of thoughtful digital solutions in enhancing real-world community spaces.
+            The interactive map significantly improved visitor navigation and facility engagement at Zuiderbad.
+            Post-launch metrics showed a 65% increase in facility discovery rates and overwhelmingly positive user
+            feedback. The project successfully demonstrated the power of thoughtful digital solutions in enhancing
+            real-world community spaces.
           </p>
           <div class="project-highlight">
-            <p><strong>Client Testimonial:</strong> "The interactive map has transformed how our visitors experience Zuiderbad. We've seen remarkable improvements in visitor engagement and satisfaction. The team's professional approach and technical expertise exceeded our expectations." - Facility Management Team</p>
+            <p><strong>Client Testimonial:</strong> "The interactive map has transformed how our visitors experience
+              Zuiderbad. We've seen remarkable improvements in visitor engagement and satisfaction. The team's
+              professional approach and technical expertise exceeded our expectations." - Facility Management Team</p>
           </div>
         </div>
 
         <ul class="project-meta">
-          <li><strong>Technologies:</strong> HTML5, CSS3, JavaScript ES6+, Leaflet.js, Progressive Web App features, Figma, Adobe Creative Cloud</li>
+          <li><strong>Technologies:</strong> HTML5, CSS3, JavaScript ES6+, Leaflet.js, Progressive Web App features,
+            Figma, Adobe Creative Cloud</li>
           <li><strong>Role:</strong> Project Manager & Lead Frontend Developer</li>
-          <li><strong>Team:</strong> Lukas D'Haese (Project Management & Frontend), <a href="https://amina-moutalibova.be/" target="_blank" rel="noopener noreferrer">Amina Moutalibova</a> (UI/UX Design), <a href="https://arthur-webdesign.be/" target="_blank" rel="noopener noreferrer">Arthur De Klerck</a> (Full-stack Development)</li>
+          <li><strong>Team:</strong> Lukas D'Haese (Project Management & Frontend), <a
+              href="https://amina-moutalibova.be/" target="_blank" rel="noopener noreferrer">Amina Moutalibova</a>
+            (UI/UX Design), <a href="https://arthur-webdesign.be/" target="_blank" rel="noopener noreferrer">Arthur De
+              Klerck</a> (Full-stack Development)</li>
           <li><strong>Duration:</strong> 3 months (January - March 2025)</li>
           <li><strong>Client:</strong> Zuiderbad Recreational Facility, Hofstade Domain</li>
-          <li><strong>Live Project:</strong> <a href="https://zuiderbad.vercel.app/" target="_blank" rel="noopener noreferrer">View Live Site</a></li>
-          <li><strong>GitHub:</strong> <a href="https://github.com/lukas-zuiderbad-map" target="_blank" rel="noopener noreferrer">View Source Code</a></li>
+          <li><strong>Live Project:</strong> <a href="https://zuiderbad.vercel.app/" target="_blank"
+              rel="noopener noreferrer">View Live Site</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/lukas-zuiderbad-map" target="_blank"
+              rel="noopener noreferrer">View Source Code</a></li>
         </ul>
 
         <div class="grid">
           <figure aria-labelledby="caption1" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/Zuiderbad1.webp)" data-gallery="preview-1" data-index="0" aria-label="Zuiderbad interactive map client meeting and planning session"></div>
+            <div class="grid__item-image" style="background-image: url(assets/Zuiderbad1.webp)" data-gallery="preview-1"
+              data-index="0" aria-label="Zuiderbad interactive map client meeting and planning session"></div>
             <figcaption class="grid__item-caption" id="caption1">
               <h3>Initial Client Discovery</h3>
               <p>Meeting with Zuiderbad management to understand user needs and facility requirements</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption2" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/zuiderbad2.webp)" data-gallery="preview-1" data-index="1" aria-label="Zuiderbad interactive map development work in progress"></div>
+            <div class="grid__item-image" style="background-image: url(assets/zuiderbad2.webp)" data-gallery="preview-1"
+              data-index="1" aria-label="Zuiderbad interactive map development work in progress"></div>
             <figcaption class="grid__item-caption" id="caption2">
               <h3>Development Sprint</h3>
               <p>Collaborative development session implementing Leaflet.js mapping functionality and custom markers</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption3" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/zuiderbad3.webp)" data-gallery="preview-1" data-index="2" aria-label="QR code route setting system for Zuiderbad interactive map"></div>
+            <div class="grid__item-image" style="background-image: url(assets/zuiderbad3.webp)" data-gallery="preview-1"
+              data-index="2" aria-label="QR code route setting system for Zuiderbad interactive map"></div>
             <figcaption class="grid__item-caption" id="caption3">
               <h3>QR Code Implementation</h3>
               <p>Strategic placement and testing of QR codes throughout the facility for instant mobile access</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption4" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/zuiderbadmockup.webp)" data-gallery="preview-1" data-index="3" aria-label="Zuiderbad interactive map design mockup and user interface"></div>
+            <div class="grid__item-image" style="background-image: url(assets/zuiderbadmockup.webp)"
+              data-gallery="preview-1" data-index="3"
+              aria-label="Zuiderbad interactive map design mockup and user interface"></div>
             <figcaption class="grid__item-caption" id="caption4">
               <h3>Final Interface Design</h3>
-              <p>Responsive map interface showing custom markers, search functionality, and mobile-optimized navigation</p>
+              <p>Responsive map interface showing custom markers, search functionality, and mobile-optimized navigation
+              </p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption5" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/zuiderbadmap.webp)" data-gallery="preview-1" data-index="4" aria-label="Complete Zuiderbad facility map overview"></div>
+            <div class="grid__item-image" style="background-image: url(assets/zuiderbadmap.webp)"
+              data-gallery="preview-1" data-index="4" aria-label="Complete Zuiderbad facility map overview"></div>
             <figcaption class="grid__item-caption" id="caption5">
               <h3>Complete Facility Overview</h3>
               <p>Full interactive map showing all 25+ facility markers, pathways, and accessibility features</p>
@@ -792,21 +930,29 @@
     <!--/ preview-1 -->
 
     <!-- Preview 3 -->
-    <section class="preview" id="preview-3" role="dialog" aria-modal="true" aria-labelledby="preview-3-title" tabindex="-1">
+    <section class="preview" id="preview-3" role="dialog" aria-modal="true" aria-labelledby="preview-3-title"
+      tabindex="-1">
       <header class="preview__header">
         <h2 class="preview__title" id="preview-3-title"><span>Network State Hackathon - Democracy Reimagined</span></h2>
-        <button type="button" class="preview__close" aria-label="Close dialog">Close ×</button>
+        <button type="button" class="preview__close" aria-label="Close dialog">Close</button>
       </header>
       <div class="preview__content">
         <div class="project-details">
           <p class="project-description">
-            During an intensive 48-hour hackathon focused on the US elections and democratic innovation, our multidisciplinary team of six tackled one of modern democracy's most pressing challenges: widespread citizen disengagement and the lack of transparency in traditional governance systems. We identified that conventional democratic frameworks often leave citizens feeling unheard and disconnected from meaningful decision-making processes.
+            During an intensive 48-hour hackathon focused on the US elections and democratic innovation, our
+            multidisciplinary team of six tackled one of modern democracy's most pressing challenges: widespread citizen
+            disengagement and the lack of transparency in traditional governance systems. We identified that
+            conventional democratic frameworks often leave citizens feeling unheard and disconnected from meaningful
+            decision-making processes.
           </p>
         </div>
 
         <div class="project-highlight">
           <h3>The Democratic Challenge</h3>
-          <p>Research shows that citizen trust in traditional democratic institutions has declined significantly, with young voters particularly disengaged from conventional political processes. Our team recognized the urgent need for innovative governance models that prioritize transparency, inclusivity, and active citizen participation through technology-enabled solutions.</p>
+          <p>Research shows that citizen trust in traditional democratic institutions has declined significantly, with
+            young voters particularly disengaged from conventional political processes. Our team recognized the urgent
+            need for innovative governance models that prioritize transparency, inclusivity, and active citizen
+            participation through technology-enabled solutions.</p>
         </div>
 
         <div class="project-stats">
@@ -833,22 +979,28 @@
           <div class="project-process">
             <div class="process-step">
               <h4>Democratic Pain Point Analysis</h4>
-              <p>Analyzed existing democratic systems, studied citizen engagement statistics, and identified key barriers to meaningful political participation in traditional governance structures.</p>
+              <p>Analyzed existing democratic systems, studied citizen engagement statistics, and identified key
+                barriers to meaningful political participation in traditional governance structures.</p>
             </div>
             <div class="process-step">
               <h4>Zuzalu Case Study</h4>
-              <p>Deep-dive research into Zuzalu, a pioneering pop-up community experiment in Montenegro, examining its governance models, decision-making processes, and community engagement strategies.</p>
+              <p>Deep-dive research into Zuzalu, a pioneering pop-up community experiment in Montenegro, examining its
+                governance models, decision-making processes, and community engagement strategies.</p>
             </div>
           </div>
           <p class="project-description">
-            Our extensive research revealed that 73% of young adults feel disconnected from traditional political processes, while 68% expressed interest in technology-enabled democratic participation. This data validated our hypothesis that blockchain-based governance could bridge the engagement gap.
+            Our extensive research revealed that 73% of young adults feel disconnected from traditional political
+            processes, while 68% expressed interest in technology-enabled democratic participation. This data validated
+            our hypothesis that blockchain-based governance could bridge the engagement gap.
           </p>
         </div>
 
         <div class="project-section">
           <h3>Design Thinking & Solution Development</h3>
           <p class="project-description">
-            Through intensive brainstorming sessions, user journey mapping, and rapid prototyping, we developed a comprehensive blockchain-based network state concept. Our solution prioritizes radical transparency, decentralized decision-making, and continuous citizen engagement through intuitive digital interfaces.
+            Through intensive brainstorming sessions, user journey mapping, and rapid prototyping, we developed a
+            comprehensive blockchain-based network state concept. Our solution prioritizes radical transparency,
+            decentralized decision-making, and continuous citizen engagement through intuitive digital interfaces.
           </p>
           <div class="project-highlight">
             <h4>Core Innovation Features:</h4>
@@ -866,16 +1018,21 @@
         <div class="project-section">
           <h3>My Role: UX/UI Design</h3>
           <p class="project-description">
-            As UX/UI designer, I spearheaded the user experience strategy and visual interface design for our network state platform. Working under extreme time pressure, I facilitated design sprints, created comprehensive user flows, and developed high-fidelity prototypes that effectively communicated our complex governance concepts to judges and stakeholders.
+            As UX/UI designer, I spearheaded the user experience strategy and visual interface design for our network
+            state platform. Working under extreme time pressure, I facilitated design sprints, created comprehensive
+            user flows, and developed high-fidelity prototypes that effectively communicated our complex governance
+            concepts to judges and stakeholders.
           </p>
           <div class="project-process">
             <div class="process-step">
               <h4>User Experience Strategy</h4>
-              <p>Designed intuitive user journeys for complex democratic processes, ensuring accessibility and engagement across diverse user demographics and technical comfort levels.</p>
+              <p>Designed intuitive user journeys for complex democratic processes, ensuring accessibility and
+                engagement across diverse user demographics and technical comfort levels.</p>
             </div>
             <div class="process-step">
               <h4>Visual Interface Design</h4>
-              <p>Created compelling visual designs that balanced sophisticated functionality with approachable aesthetics, making blockchain governance concepts accessible to mainstream users.</p>
+              <p>Created compelling visual designs that balanced sophisticated functionality with approachable
+                aesthetics, making blockchain governance concepts accessible to mainstream users.</p>
             </div>
           </div>
         </div>
@@ -883,241 +1040,327 @@
         <div class="project-section">
           <h3>Rapid Prototyping & Presentation</h3>
           <p class="project-description">
-            Working within the intense hackathon timeline, our team successfully developed a comprehensive prototype demonstrating key governance features, community engagement tools, and transparent decision-making processes. The final presentation showcased both technical innovation and practical implementation strategies for real-world deployment.
+            Working within the intense hackathon timeline, our team successfully developed a comprehensive prototype
+            demonstrating key governance features, community engagement tools, and transparent decision-making
+            processes. The final presentation showcased both technical innovation and practical implementation
+            strategies for real-world deployment.
           </p>
           <div class="project-highlight">
-            <p><strong>Judge Feedback:</strong> "This team demonstrated exceptional innovation in addressing democratic engagement challenges. Their blockchain-based governance model shows promising potential for reimagining citizen participation in the digital age. The UX design successfully makes complex concepts accessible and engaging." - Hackathon Evaluation Panel</p>
+            <p><strong>Judge Feedback:</strong> "This team demonstrated exceptional innovation in addressing democratic
+              engagement challenges. Their blockchain-based governance model shows promising potential for reimagining
+              citizen participation in the digital age. The UX design successfully makes complex concepts accessible and
+              engaging." - Hackathon Evaluation Panel</p>
           </div>
         </div>
 
         <div class="project-section">
           <h3>Learning Outcomes & Impact</h3>
           <p class="project-description">
-            This project challenged me to think beyond traditional design paradigms and explore how technology could fundamentally reshape democratic participation. Working under intense time pressure alongside diverse expertise taught me invaluable lessons about rapid prototyping, collaborative design thinking, cross-functional communication, and presenting complex concepts clearly to technical and non-technical audiences.
+            This project challenged me to think beyond traditional design paradigms and explore how technology could
+            fundamentally reshape democratic participation. Working under intense time pressure alongside diverse
+            expertise taught me invaluable lessons about rapid prototyping, collaborative design thinking,
+            cross-functional communication, and presenting complex concepts clearly to technical and non-technical
+            audiences.
           </p>
         </div>
 
         <ul class="project-meta">
           <li><strong>Technologies:</strong> Figma, Adobe Creative Suite, Miro</li>
           <li><strong>Role:</strong> UX/UI Design, Visual Design</li>
-          <li><strong>Team:</strong> Lukas D'Haese (UX/UI Lead), <a href="https://www.linkedin.com/in/sundaramj/?originalSubdomain=be" target="_blank" rel="noopener noreferrer">Jha Sundaram</a> (Concept development), <a href="https://www.linkedin.com/in/melly-marcelia-a8b45929a/?originalSubdomain=fr" target="_blank" rel="noopener noreferrer">Melly Marcelia</a> (Design), <a href="https://www.linkedin.com/in/amina-moutalibova-02a621297/" target="_blank" rel="noopener noreferrer">Amina Moutalibova</a> (Visual Design), <a href="https://www.linkedin.com/in/lotte-carleer-723010239/" target="_blank" rel="noopener noreferrer">Lotte Carleer</a> (User Research), <a href="https://www.linkedin.com/in/ryan-van-de-vreken-983751222/?locale=nl_NL" target="_blank" rel="noopener noreferrer">Ryan Van de Vreken</a> (Visual design & UX)</li>
+          <li><strong>Team:</strong> Lukas D'Haese (UX/UI Lead), <a
+              href="https://www.linkedin.com/in/sundaramj/?originalSubdomain=be" target="_blank"
+              rel="noopener noreferrer">Jha Sundaram</a> (Concept development), <a
+              href="https://www.linkedin.com/in/melly-marcelia-a8b45929a/?originalSubdomain=fr" target="_blank"
+              rel="noopener noreferrer">Melly Marcelia</a> (Design), <a
+              href="https://www.linkedin.com/in/amina-moutalibova-02a621297/" target="_blank"
+              rel="noopener noreferrer">Amina Moutalibova</a> (Visual Design), <a
+              href="https://www.linkedin.com/in/lotte-carleer-723010239/" target="_blank"
+              rel="noopener noreferrer">Lotte Carleer</a> (User Research), <a
+              href="https://www.linkedin.com/in/ryan-van-de-vreken-983751222/?locale=nl_NL" target="_blank"
+              rel="noopener noreferrer">Ryan Van de Vreken</a> (Visual design & UX)</li>
           <li><strong>Duration:</strong> 48-hour intensive hackathon (October 2024)</li>
           <li><strong>Event:</strong> US Elections Democracy Innovation Hackathon</li>
           <li><strong>Achievement:</strong> Top 2 finalist among 50+ competing teams</li>
-          <li><strong>Complete Process Documentation:</strong> <a href="https://www.figma.com/proto/jz1QtY0Ew5renX8HFy2XWB/UI--UX-Study-Case?node-id=1-5328&p=f&t=nswA5oU8OLwSewWS-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1" target="_blank" rel="noopener noreferrer">View Complete Design Process & Documentation</a></li>
+          <li><strong>Complete Process Documentation:</strong> <a
+              href="https://www.figma.com/proto/jz1QtY0Ew5renX8HFy2XWB/UI--UX-Study-Case?node-id=1-5328&p=f&t=nswA5oU8OLwSewWS-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1"
+              target="_blank" rel="noopener noreferrer">View Complete Design Process & Documentation</a></li>
         </ul>
 
         <div class="grid">
           <figure aria-labelledby="caption21" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/networkstate_zuzalu_vert.webp)" data-gallery="preview-3" data-index="0" aria-label="Network State hackathon Zuzalu concept design by Lukas D'Haese"></div>
+            <div class="grid__item-image" style="background-image: url(assets/networkstate_zuzalu_vert.webp)"
+              data-gallery="preview-3" data-index="0"
+              aria-label="Network State hackathon Zuzalu concept design by Lukas D'Haese"></div>
             <figcaption class="grid__item-caption" id="caption21">
               <h3>Zuzalu Research Analysis</h3>
-              <p>Comprehensive study of the Montenegro pop-up community experiment that inspired our governance model</p>
+              <p>Comprehensive study of the Montenegro pop-up community experiment that inspired our governance model
+              </p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption22" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/networkstate_home_vert.webp)" data-gallery="preview-3" data-index="1" aria-label="Network State application home screen interface design"></div>
+            <div class="grid__item-image" style="background-image: url(assets/networkstate_home_vert.webp)"
+              data-gallery="preview-3" data-index="1"
+              aria-label="Network State application home screen interface design"></div>
             <figcaption class="grid__item-caption" id="caption22">
               <h3>Citizen Dashboard Interface</h3>
-              <p>Main platform interface showing governance participation, voting opportunities, and community engagement metrics</p>
+              <p>Main platform interface showing governance participation, voting opportunities, and community
+                engagement metrics</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption23" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/networkstate_community_vert.webp)" data-gallery="preview-3" data-index="2" aria-label="Network State community screen user interface design"></div>
+            <div class="grid__item-image" style="background-image: url(assets/networkstate_community_vert.webp)"
+              data-gallery="preview-3" data-index="2" aria-label="Network State community screen user interface design">
+            </div>
             <figcaption class="grid__item-caption" id="caption23">
               <h3>Community Engagement Hub</h3>
-              <p>Social features enabling transparent discussion, policy collaboration, and democratic consensus building</p>
+              <p>Social features enabling transparent discussion, policy collaboration, and democratic consensus
+                building</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption24" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/networkstate.webp)" data-gallery="preview-3" data-index="3" aria-label="Network State hackathon project overview and concept design"></div>
+            <div class="grid__item-image" style="background-image: url(assets/networkstate.webp)"
+              data-gallery="preview-3" data-index="3"
+              aria-label="Network State hackathon project overview and concept design"></div>
             <figcaption class="grid__item-caption" id="caption24">
               <h3>Complete Platform Overview</h3>
               <p>Comprehensive view of the blockchain-based network state ecosystem and governance framework</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption25" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/networkstate_home.webp)" data-gallery="preview-3" data-index="4" aria-label="Network State desktop platform interface"></div>
+            <div class="grid__item-image" style="background-image: url(assets/networkstate_home.webp)"
+              data-gallery="preview-3" data-index="4" aria-label="Network State desktop platform interface"></div>
             <figcaption class="grid__item-caption" id="caption25">
               <h3>Desktop Platform Interface</h3>
               <p>Full desktop experience showcasing advanced governance tools and community management features</p>
             </figcaption>
           </figure>
           <figure aria-labelledby="caption26" class="grid__item">
-            <div class="grid__item-image" style="background-image: url(assets/networkstate_community.webp)" data-gallery="preview-3" data-index="5" aria-label="Network State community features desktop view"></div>
+            <div class="grid__item-image" style="background-image: url(assets/networkstate_community.webp)"
+              data-gallery="preview-3" data-index="5" aria-label="Network State community features desktop view"></div>
             <figcaption class="grid__item-caption" id="caption26">
               <h3>Advanced Community Tools</h3>
-              <p>Desktop interface showing sophisticated community management, policy discussion, and democratic participation features</p>
+              <p>Desktop interface showing sophisticated community management, policy discussion, and democratic
+                participation features</p>
             </figcaption>
           </figure>
         </div>
-        <!-- ...existing code... -->
-    </div>
-    <footer class="site-footer" role="contentinfo">
-      <div class="footer-content">
-        <p class="footer-text">
-          © <span id="current-year"></span> Lukas D'Haese. Built with care in Belgium.
-        </p>
-        <a href="/cookie-settings.html" class="line footer-link">Cookie Settings</a>
       </div>
-    </footer>
-    
-    <!-- GSAP Scripts - Load in specific order for compatibility -->
-    <script src="js/gsap.min.js" onerror="loadGSAPFallback()"></script>
-    <script src="js/ScrollTrigger.min.js" onerror="console.error('Failed to load ScrollTrigger')"></script>
-    <script src="js/ScrollSmoother.min.js" onerror="console.error('Failed to load ScrollSmoother')"></script>
-    <script src="js/ScrollToPlugin.min.js" onerror="console.error('Failed to load ScrollToPlugin')"></script>
-    <script src="js/SplitText.min.js" onerror="console.error('Failed to load SplitText')"></script>
-    <script src="js/imagesloaded.pkgd.min.js" onerror="console.error('Failed to load ImagesLoaded')"></script>
-    <script>
-      // CDN Fallback for GSAP
-      function loadGSAPFallback() {
-        console.warn('Loading GSAP from CDN fallback');
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
-        script.onload = () => console.log('GSAP loaded from CDN');
-        script.onerror = () => console.error('CDN fallback also failed');
-        document.head.appendChild(script);
-      }
-      
-      // Final check after page load
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          if (typeof gsap === 'undefined') {
-            console.error('GSAP failed to load from both local and CDN sources');
-          } else {
-            console.log('GSAP is available and ready');
-          }
-        }, 100);
-      });
-    </script>
-    <script src="js/index.js" type="module" onerror="console.error('Failed to load main application script')"></script>
-    
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="cookie-banner-title">
-      <div class="cookie-content">
-        <div class="cookie-text">
-          <h3 id="cookie-banner-title">We use cookies</h3>
-          <p>This website uses cookies to improve your experience and analyze site traffic. We respect your privacy and give you full control over your data.</p>
-        </div>
-        <div class="cookie-buttons">
-          <button id="accept-all-cookies" class="cookie-btn cookie-btn--accept">Accept All</button>
-          <a href="/cookie-settings.html" class="cookie-btn cookie-btn--settings">Cookie Settings</a>
-          <button id="reject-cookies" class="cookie-btn cookie-btn--reject">Reject All</button>
-        </div>
-      </div>
+    </section>
+    <!--/ preview-3 -->
+  </div>
+  <footer class="site-footer" role="contentinfo" style="margin-top: 2em; margin-bottom: 1em;">
+    <div class="footer-content" style="display: flex; align-items: center; justify-content: center; gap: 0.5em; flex-wrap: wrap;">
+      <p class="footer-text" style="margin: 0;">
+        © <span id="current-year"></span> Lukas D'Haese. Built with care in Belgium.
+      </p>
+      <a href="/cookie-settings.html" class="line footer-link" style="margin: 0;">Cookie Settings</a>
     </div>
-    
-    <script>
-      // Cookie Management System
-      (function() {
-        const COOKIE_CONSENT_KEY = 'cookie-consent';
-        const ANALYTICS_CONSENT_KEY = 'analytics-consent';
-        
-        // Elements
-        const banner = document.getElementById('cookie-banner');
-        const acceptAllBtn = document.getElementById('accept-all-cookies');
-        const rejectBtn = document.getElementById('reject-cookies');
-        
-        function showBanner() {
-          if (banner) banner.style.display = 'block';
-        }
-        
-        function hideBanner() {
-          if (banner) banner.style.display = 'none';
-        }
-        
-        function setCookieConsent(value) {
-          localStorage.setItem(COOKIE_CONSENT_KEY, value);
-          localStorage.setItem('cookie-consent-date', new Date().toISOString());
-          console.log('Cookie consent set to:', value);
-        }
-        
-        function getCookieConsent() {
-          return localStorage.getItem(COOKIE_CONSENT_KEY);
-        }
-        
-        function setAnalyticsConsent(value) {
-          localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
-          console.log('Analytics consent set to:', value);
-        }
-        
-        function getAnalyticsConsent() {
-          return localStorage.getItem(ANALYTICS_CONSENT_KEY) === 'true';
-        }
-        
-        function updateGoogleAnalytics(consent) {
-          if (typeof gtag !== 'undefined') {
-            gtag('consent', 'update', {
-              'analytics_storage': consent ? 'granted' : 'denied',
-              'ad_storage': 'denied'
-            });
-            console.log('Google Analytics consent updated:', consent);
-          }
-        }
-        
-        function acceptAll() {
-          console.log('Accepting all cookies');
-          setCookieConsent('accepted');
-          setAnalyticsConsent(true);
-          updateGoogleAnalytics(true);
-          hideBanner();
-        }
-        
-        function rejectAll() {
-          console.log('Rejecting all cookies');
-          setCookieConsent('rejected');
-          setAnalyticsConsent(false);
-          updateGoogleAnalytics(false);
-          hideBanner();
-        }
-        
-        // Initialize
-        function init() {
-          const consent = getCookieConsent();
-          
-          if (!consent) {
-            // Show banner for first-time visitors
-            setTimeout(showBanner, 1000);
-          } else {
-            // Apply saved preferences
-            const analyticsConsent = getAnalyticsConsent();
-            updateGoogleAnalytics(analyticsConsent);
-          }
-          
-          // Set current year in footer
-          const currentYearElement = document.getElementById('current-year');
-          if (currentYearElement) {
-            currentYearElement.textContent = new Date().getFullYear();
-          }
-        }
-        
-        // Event listeners
-        if (acceptAllBtn) acceptAllBtn.addEventListener('click', acceptAll);
-        if (rejectBtn) rejectBtn.addEventListener('click', rejectAll);
-        
-        // Helper function for testing
-        window.clearCookiePreferences = function() {
-          localStorage.removeItem(COOKIE_CONSENT_KEY);
-          localStorage.removeItem(ANALYTICS_CONSENT_KEY);
-          localStorage.removeItem('cookie-consent-date');
-          console.log('Cookie preferences cleared');
-          location.reload();
-        };
-        
-        // Initialize when DOM is loaded
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', init);
+  </footer>
+
+  <!-- GSAP Scripts - Load in specific order for compatibility -->
+  <script src="js/gsap.min.js" onerror="loadGSAPFallback()"></script>
+  <script src="js/ScrollTrigger.min.js" onerror="console.error('Failed to load ScrollTrigger')"></script>
+  <script src="js/ScrollSmoother.min.js" onerror="console.error('Failed to load ScrollSmoother')"></script>
+  <script src="js/ScrollToPlugin.min.js" onerror="console.error('Failed to load ScrollToPlugin')"></script>
+  <script src="js/SplitText.min.js" onerror="console.error('Failed to load SplitText')"></script>
+  <script src="js/imagesloaded.pkgd.min.js" onerror="console.error('Failed to load ImagesLoaded')"></script>
+  <script>
+    // CDN Fallback for GSAP
+    function loadGSAPFallback() {
+      console.warn('Loading GSAP from CDN fallback');
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+      script.onload = () => console.log('GSAP loaded from CDN');
+      script.onerror = () => console.error('CDN fallback also failed');
+      document.head.appendChild(script);
+    }
+
+    // Final check after page load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (typeof gsap === 'undefined') {
+          console.error('GSAP failed to load from both local and CDN sources');
         } else {
-          init();
+          console.log('GSAP is available and ready');
         }
-      })();
-    </script>
-    <div id="lightbox" class="lightbox" style="display:none;" role="dialog" aria-modal="true" aria-label="Image viewer" tabindex="-1">
-      <button type="button" class="lightbox__close" aria-label="Close">&times;</button>
-      <button type="button" class="lightbox__arrow lightbox__arrow--left" aria-label="Previous image">&#8592;</button>
-      <img class="lightbox__img" src="" alt="Project image" />
-      <button type="button" class="lightbox__arrow lightbox__arrow--right" aria-label="Next image">&#8594;</button>
+      }, 100);
+    });
+  </script>
+  <script src="js/index.js" type="module"
+    onerror="console.error('Failed to load main application script')"></script>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner" style="display: none;" role="dialog" aria-modal="true"
+    aria-labelledby="cookie-banner-title">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        <h3 id="cookie-banner-title">We use cookies</h3>
+        <p>This website uses cookies to improve your experience and analyze site traffic. We respect your privacy
+          and give you full control over your data.</p>
+      </div>
+      <div class="cookie-buttons">
+        <button id="accept-all-cookies" class="cookie-btn cookie-btn--accept">Accept All</button>
+        <a href="/cookie-settings.html" class="cookie-btn cookie-btn--settings">Cookie Settings</a>
+        <button id="reject-cookies" class="cookie-btn cookie-btn--reject">Reject All</button>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <!-- Cookie Management System -->
+  <script>
+        // Cookie Management System
+        (function () {
+          const COOKIE_CONSENT_KEY = 'cookie-consent';
+          const ANALYTICS_CONSENT_KEY = 'analytics-consent';
+
+          // Elements
+          const banner = document.getElementById('cookie-banner');
+          const acceptAllBtn = document.getElementById('accept-all-cookies');
+          const rejectBtn = document.getElementById('reject-cookies');
+
+          function showBanner() {
+            if (banner) {
+              banner.style.display = 'flex';
+              console.log('Cookie banner shown');
+            } else {
+              console.error('Cookie banner element not found');
+            }
+          }
+
+          function hideBanner() {
+            if (banner) {
+              banner.style.display = 'none';
+              console.log('Cookie banner hidden');
+            }
+          }
+
+          function setCookieConsent(value) {
+            localStorage.setItem(COOKIE_CONSENT_KEY, value);
+            localStorage.setItem('cookie-consent-date', new Date().toISOString());
+            console.log('Cookie consent set to:', value);
+          }
+
+          function getCookieConsent() {
+            return localStorage.getItem(COOKIE_CONSENT_KEY);
+          }
+
+          function setAnalyticsConsent(value) {
+            localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
+            console.log('Analytics consent set to:', value);
+          }
+
+          function getAnalyticsConsent() {
+            return localStorage.getItem(ANALYTICS_CONSENT_KEY) === 'true';
+          }
+
+          function updateGoogleAnalytics(consent) {
+            if (typeof gtag !== 'undefined') {
+              gtag('consent', 'update', {
+                'analytics_storage': consent ? 'granted' : 'denied',
+                'ad_storage': 'denied'
+              });
+              console.log('Google Analytics consent updated:', consent);
+            }
+          }
+
+          function acceptAll() {
+            console.log('Accepting all cookies');
+            setCookieConsent('accepted');
+            setAnalyticsConsent(true);
+            updateGoogleAnalytics(true);
+            hideBanner();
+          }
+
+          function rejectAll() {
+            console.log('Rejecting all cookies');
+            setCookieConsent('rejected');
+            setAnalyticsConsent(false);
+            updateGoogleAnalytics(false);
+            hideBanner();
+          }
+
+          // Initialize
+          function init() {
+            console.log('Initializing cookie management system');
+            const consent = getCookieConsent();
+            console.log('Current consent status:', consent);
+
+            if (!consent || consent === null || consent === undefined || consent === 'null' || consent === 'undefined') {
+              // Show banner for first-time visitors or if no consent is set
+              console.log('No consent found, showing banner');
+              setTimeout(showBanner, 1500); // Increased delay to ensure page is loaded
+            } else {
+              // Apply saved preferences
+              console.log('Applying saved consent preferences');
+              const analyticsConsent = getAnalyticsConsent();
+              updateGoogleAnalytics(analyticsConsent);
+            }
+
+            // Set current year in footer
+            const currentYearElement = document.getElementById('current-year');
+            if (currentYearElement) {
+              currentYearElement.textContent = new Date().getFullYear();
+            }
+          }
+
+          // Event listeners
+          if (acceptAllBtn) {
+            acceptAllBtn.addEventListener('click', acceptAll);
+          } else {
+            console.error('Accept all button not found');
+          }
+          
+          if (rejectBtn) {
+            rejectBtn.addEventListener('click', rejectAll);
+          } else {
+            console.error('Reject button not found');
+          }
+
+          // Helper function for testing - clear all preferences
+          window.clearCookiePreferences = function () {
+            localStorage.removeItem(COOKIE_CONSENT_KEY);
+            localStorage.removeItem(ANALYTICS_CONSENT_KEY);
+            localStorage.removeItem('cookie-consent-date');
+            console.log('Cookie preferences cleared - refreshing page');
+            location.reload();
+          };
+
+          // Helper function for testing - force show banner
+          window.showCookieBanner = function () {
+            showBanner();
+          };
+
+          // Helper function for testing - check current status
+          window.checkCookieStatus = function () {
+            console.log('=== COOKIE STATUS ===');
+            console.log('Consent:', getCookieConsent());
+            console.log('Analytics consent:', getAnalyticsConsent());
+            console.log('Banner element exists:', !!banner);
+            console.log('Banner display style:', banner ? banner.style.display : 'N/A');
+            console.log('LocalStorage items:', localStorage.length);
+            return {
+              consent: getCookieConsent(),
+              analytics: getAnalyticsConsent(),
+              bannerExists: !!banner,
+              bannerDisplay: banner ? banner.style.display : 'N/A'
+            };
+          };
+
+          // Initialize when DOM is loaded
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+          } else {
+            init();
+          }
+        })();
+      </script>
+      <div id="lightbox" class="lightbox" style="display:none;" role="dialog" aria-modal="true"
+        aria-label="Image viewer" tabindex="-1">
+        <button type="button" class="lightbox__close" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox__arrow lightbox__arrow--left" aria-label="Previous image">&#8592;</button>
+        <img class="lightbox__img" src="" alt="Project image" />
+        <button type="button" class="lightbox__arrow lightbox__arrow--right" aria-label="Next image">&#8594;</button>
+      </div>
+</body>
+
 </html>

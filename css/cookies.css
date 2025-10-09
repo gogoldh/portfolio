@@ -11,14 +11,18 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
-  display: flex;
+  display: none; /* Changed to none by default, JavaScript will show it */
   align-items: center;
   justify-content: center;
-  z-index: 99999; /* Increased z-index to ensure it's above everything */
+  z-index: 999999; /* Increased z-index to ensure it's above everything */
   animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 1rem;
   width: 100vw;
   height: 100vh;
+}
+
+.cookie-banner[style*="display: flex"] {
+  display: flex !important; /* Ensure it shows when JavaScript sets display to flex */
 }
 
 .cookie-content {

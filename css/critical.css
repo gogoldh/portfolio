@@ -36,7 +36,6 @@ body {
   min-height: 100%;
   width: 100%;
   font-family: 'forma-djr-mono', 'Courier New', 'Monaco', 'Consolas', monospace;
-  text-transform: uppercase;
   margin: 0;
   color: var(--color-text);
   background-color: var(--color-bg);
