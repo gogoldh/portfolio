@@ -815,6 +815,9 @@ const init = () => {
   initCarousels();
   initEventListeners();
   
+  // Format titles for mobile devices
+  formatMobileTitles();
+  
   // Hide scrollbar on homepage for cleaner look
   document.documentElement.classList.add('hide-scrollbar');
   
@@ -824,6 +827,37 @@ const init = () => {
   // Validate carousel sizes on initial load
   setTimeout(validateCarouselSizes, 100);
 };
+
+// Function to format titles for mobile devices
+function formatMobileTitles() {
+  // Check if we're on a mobile device
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+  
+  function updateTitles() {
+    const titles = document.querySelectorAll('.scene__title span');
+    
+    titles.forEach(titleSpan => {
+      const originalText = titleSpan.textContent;
+      
+      if (isMobile()) {
+        // Replace " - " with line breaks for better mobile formatting
+        const mobileText = originalText.replace(/ - /g, '<br>');
+        titleSpan.innerHTML = mobileText;
+      } else {
+        // Restore original text for desktop
+        titleSpan.innerHTML = originalText;
+      }
+    });
+  }
+  
+  // Initial formatting
+  updateTitles();
+  
+  // Update on window resize
+  window.addEventListener('resize', updateTitles);
+}
 
 // Initialize immediately, then enhance when images are loaded
 init();

@@ -71,6 +71,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Default desktop text visibility */
+.desktop-text {
+  display: inline;
+}
+
+.mobile-text {
+  display: none;
+}
+
 @media (scripting: enabled) {
   /* Flattened from nested syntax */
   .loading::before,
@@ -322,6 +331,221 @@ a:focus-visible {
   display: inline-block;
   transform-style: preserve-3d;
   transform-origin: 50% 0%;
+}
+
+/* Mobile responsive styling */
+@media (max-width: 768px) {
+  /* Global mobile fixes - aggressive approach */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Responsive text for headings */
+  .desktop-text {
+    display: none;
+  }
+  
+  .mobile-text {
+    display: inline;
+  }
+  
+  .scene__title {
+    text-align: center;
+    line-height: 1.3;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+  
+  .scene__title span {
+    display: block;
+  }
+  
+  /* About page mobile optimizations */
+  #preview-about .preview__content {
+    padding: 1rem 0.5rem 3rem;
+    max-width: 98vw;
+    width: 98vw;
+    margin: 0 auto;
+  }
+  
+  /* Fix horizontal scroll issues with generous viewport usage */
+  .preview {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  .preview__content {
+    padding: 1rem 0.5rem 3rem !important;
+    max-width: 98vw !important;
+    width: 98vw !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+    overflow-x: hidden !important;
+  }
+  
+  .project-details {
+    margin-bottom: 1.5rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 96vw;
+    width: 96vw;
+    box-sizing: border-box;
+  }
+  
+  .project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .project-meta li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  
+  /* Force break long URLs and text */
+  .project-meta a,
+  .project-description,
+  p, h1, h2, h3, h4, h5, h6 {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+  }
+  
+  .project-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    max-width: 96vw;
+    width: 96vw;
+  }
+  
+  .stat-item {
+    padding: 0.75rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .about-two-column {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    max-width: 96vw !important;
+    width: 96vw;
+    overflow: hidden !important;
+  }
+  
+  .about-image-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    max-width: 96vw !important;
+    width: 96vw;
+    overflow: hidden !important;
+  }
+  
+  .about-image-item {
+    border-radius: 8px;
+  }
+  
+  .about-image-caption {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .project-highlight {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    max-width: 96vw !important;
+    width: 96vw;
+    overflow: hidden !important;
+  }
+  
+  .project-highlight h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .project-highlight p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .project-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    max-width: 96vw !important;
+    width: 96vw;
+    overflow: hidden !important;
+  }
+  
+  .project-process {
+    gap: 1rem;
+    max-width: 96vw !important;
+    width: 96vw;
+    overflow: hidden !important;
+  }
+  
+  .process-step {
+    padding: 0.75rem;
+  }
+  
+  .process-step h4 {
+    font-size: 0.9rem;
+  }
+  
+  .process-step p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  /* Preview header mobile optimization */
+  .preview__header {
+    padding: 1rem 0.5rem 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 98vw;
+    width: 98vw;
+    margin: 0 auto;
+  }
+  
+  .preview__title {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  
+  .preview__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
 }
 
 .carousel {
